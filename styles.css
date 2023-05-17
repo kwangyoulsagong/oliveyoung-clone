@@ -1,0 +1,94 @@
+.navbar {
+    display: flex;
+    margin-left: 50%;
+    width: 100vw;
+    gap: 2vw;
+    font-size: 0.75rem;
+    list-style: none;
+    color: rgb(154, 150, 150); 
+}
+.logo{
+    position: absolute;
+    top: 7%;
+    width: 16.5vw;
+    left: 16.5%;
+}
+.search-box{
+    position: absolute;
+    top: 7%;
+    left: 40%;
+    border-radius: 20vw;
+    width: 22.5vw;
+    height: 4vh;
+    background: #ffffff;    
+    border: 2px solid #9bce26;
+}
+.search{
+    position: absolute;
+    width: 97%;
+    left: 1%;
+    height: 95%;
+    border-radius: 20vw;
+    border: #ffffff;
+}
+.enter{
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_search21x212.png) 50% 50% no-repeat;
+    width: 1.5vw;
+    height: 3vh;
+    border: #ffffff;
+}
+.navbar a{
+    color: rgb(154, 150, 150);   
+    text-decoration: none;
+}
+.login-font{
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 3rem;
+
+}
+.login-container span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    margin-top: -2%;
+}
+.login-container{
+    position: absolute;
+    top: 25%;
+    width: 100vw;
+
+}
+.loginid{
+    position: absolute;
+    left: 40%;
+    top: 130%;
+    width: 20vw;
+}
+.loginpw{
+    position: absolute;
+    left: 40%;
+    top: 145%;
+    width: 20vw;
+}
+.btngreen{
+    position: absolute;
+    background-color: #9bce26;
+    width: 20.5vw;
+    color: white;
+    height: 5vh;
+    left: 40%;
+    top: 180%;
+    border-color: #9bce26;
+}
+.username{
+    color: black;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
