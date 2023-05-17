@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>회원가입</title>
 </head>
 <body>
     <form  method="post" action="register">
-        <div class="register-container"><h1 class="register-font">로그인</h1><br/><span>올리브영의 다양한 서비스의 혜택을 누리세요</span>
-             <input type="text" name="id" class="loginid" placeholder="CJ ONE 통합회원 아이디 입력">
-             <input type="password" name="pw" class="loginpw" placeholder="비밀번호 (8-12자 영문자+숫자+특수문자)">
-             <input type="submit" class="btngreen" value="Submit" /></div></form>
+        <div class="register-container"><h1 class="register-font">올리브영+CJ ONE 통합회원 가입</h1><br/><span>통합 아이디로 CJ ONE 브랜드 혜택도 받고! 포인트도 쌓고!</span>
+             <input type="text" name="id" class="registerid" placeholder="아이디 입력해주세요.">
+             <input type="password" name="pw" class="registerpw" placeholder="비밀번호 입력해주세요. (8-12자 영문자+숫자+특수문자)">
+             <input type="text" name="name" class="registername" placeholder="이름을 입력해주세요.">
+             <input type="text" name="email" class="registeremail" placeholder="이메일을 입력해주세요.">
+             <input type="text" name="birth" class="registerbirth" placeholder="법정생년월일 6자리를 입력해주세요.">
+             <input type="text" name="address" class="registeraddress" placeholder="주소를 입력해주세요.">
+             <input type="text" name="phone" class="registerphone" placeholder="휴대전화번호 뒤 7~8자리를 입력해주세요. (01x 제외)">
+             <input type="submit" class="btnblack" value="Submit" /></div></form>
          
 </body>
 </html>

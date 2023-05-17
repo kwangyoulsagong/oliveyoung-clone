@@ -92,3 +92,77 @@
     font-weight: bolder;
     text-transform: uppercase;
 }
+.registerid{
+    position: absolute;
+    left: 55%;
+    top: 25%;
+    width: 30vw;
+    height: 3vh;
+}
+.registerpw{
+    position: absolute;
+    left: 55%;
+    top: 32.5%;
+    width: 30vw;
+    height: 3vh;
+}
+.registername{
+    position: absolute;
+    left: 55%;
+    top: 40%;
+    width: 30vw;
+    height: 3vh;
+}
+.registeremail{
+    position: absolute;
+    left: 55%;
+    top: 47.5%;
+    width: 30vw;
+    height: 3vh;
+}
+.registerbirth{
+    position: absolute;
+    left: 55%;
+    top: 55%;
+    width: 30vw;
+    height: 3vh;
+}
+.registeraddress{
+    position: absolute;
+    left: 55%;
+    top: 62.5%;
+    width: 30vw;
+    height: 3vh;
+}
+.registerphone{
+    position: absolute;
+    left: 55%;
+    top: 70%;
+    width: 30vw;
+    height: 3vh;
+}
+.register-font{
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 3rem;
+
+}
+.register-container{
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    background: #f8f8f8;
+    width: 80vw;
+    height: 75vh;
+    border-top: #000000 solid 1px;
+
+}
+.register-container span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    margin-top: -2%;
+}
