@@ -9,7 +9,7 @@
     <title>올리브영 온라인몰</title>
 </head>
 <body>
-    <nav class="navbar"><span class="username"></span> <a href="/"><li>로그아웃</li></a>
+    <nav class="navbar"><span class="username"></span> <form method="post" action="logout"><a href="/"><li>로그아웃</li></a></form>
         <a href="/mypage"><li>마이페이지</li></a>
         <li>장바구니</li>
         <li>주문배송</li>
@@ -24,7 +24,7 @@
 <script>
     axios.get("http://localhost:3000/customer").then((res)=>{// 요청
         const account=document.querySelector('.username')
-        account.innerHTML=`${res.data[1]} 올리브`+" "+res.data[0]
+        account.innerHTML=`올리브`+" "+res.data
 
     })
 </script>

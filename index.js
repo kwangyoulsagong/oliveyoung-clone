@@ -54,8 +54,7 @@ app.post('/login',(req,res)=>{
     if (error) throw error;
     if(id == data[0].id && pw==data[0].passward){
      app.route('/customer').get((req,res)=>{
-      const arr=[data[0].name, data[0].membership]
-      res.send(arr)
+      res.send(data[0].name)
      })
      res.redirect('/user')
     }
@@ -71,7 +70,7 @@ app.post('/register',(req,res)=>{
   const birth=req.body.birth
   const address=req.body.address
   const phone=req.body.phone
-  if(id){
+  if(id&&pw&&name&&email&&birth&&address&&phone){
     connection.query('SELECT * from customer where id=?',[id], (error, data) => {
       if (error) throw error;
       if(data.length<=0){
@@ -81,9 +80,20 @@ app.post('/register',(req,res)=>{
           document.location.href="/";</script>`)
         })
       }
+      else{
+        res.send(`<script type="text/javascript">alert("이미 존재하는 아이디 입니다."); 
+                document.location.href="/register";</script>`);  
+      }
     })
   }
+  else{
+    res.send(`<script type="text/javascript">alert("입력되지 않은 정보가 있습니다."); 
+    document.location.href="/register";</script>`);
+  }
   
+})
+app.post('/logout',(req,res)=>{
+  res.redirect('/')
 })
 
 app.listen(app.get('port'), () => {
