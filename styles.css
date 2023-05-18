@@ -92,6 +92,24 @@
     font-weight: bolder;
     text-transform: uppercase;
 }
+.register-info{
+    position: absolute;
+    font-size: 1.5rem;
+    top: 20%;
+    left: 7%;
+}
+.info-table{
+    position: absolute;
+    left: 7%;
+    top: 30%;
+    line-height: 3.5vh;
+}
+.info-table li{
+    margin-top: 5%;
+}
+.h{
+    color: blue;
+}
 .registerid{
     position: absolute;
     left: 55%;
@@ -141,12 +159,23 @@
     width: 30vw;
     height: 3vh;
 }
+.btnblack{
+    position: absolute;
+    left: 55%;
+    top: 77%;
+    width: 30vw;
+    font-size: 1.15rem;
+    background: #333333;
+    height: 6vh;
+    color: white
+}
 .register-font{
     display: flex;  
     justify-content: center;
     align-items: center;
     color: black;
     font-size: 3rem;
+    margin-top: -10%;
 
 }
 .register-container{

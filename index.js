@@ -63,6 +63,28 @@ app.post('/login',(req,res)=>{
   });
 
 })
+app.post('/register',(req,res)=>{
+  const id=req.body.id
+  const pw=req.body.pw
+  const name =req.body.name
+  const email=req.body.email
+  const birth=req.body.birth
+  const address=req.body.address
+  const phone=req.body.phone
+  if(id){
+    connection.query('SELECT * from customer where id=?',[id], (error, data) => {
+      if (error) throw error;
+      if(data.length<=0){
+        connection.query('insert into customer values (?,?,?,?,?,?,?)',[id, pw, name, email, birth, address, phone],(error,data)=>{
+          if (error) throw error;
+          res.send(`<script type="text/javascript">alert("회원가입이 완료되었습니다!");
+          document.location.href="/";</script>`)
+        })
+      }
+    })
+  }
+  
+})
 
 app.listen(app.get('port'), () => {
   console.log('Express server listening on port ' + app.get('port'));
