@@ -29,7 +29,14 @@ app.get("/register", (req, res) => {
  
   res.sendFile(__dirname + "/register.html");
 });
-
+app.get("/mypage", (req, res) => {
+ 
+  res.sendFile(__dirname + "/mypage.html");
+});
+app.get("/update", (req, res) => {
+ 
+  res.sendFile(__dirname + "/update.html");
+});
 
 // configuration =========================
 app.set('port', process.env.PORT || 3000);
@@ -57,9 +64,30 @@ app.post('/login',(req,res)=>{
       res.send(data[0].name)
      })
      res.redirect('/user')
+     
     }
     //res.send(rows);
-  });
+  })
+  app.post('/update',(req,res)=>{
+    const skin1 =req.body.skin_type1
+     const skin2 =req.body.skin_type2
+     const skin3 =req.body.skin_type3
+      connection.query('update mypage set id=?, type1=?, type2=?, type3=?',[id,skin1,skin2,skin3], (error, data) =>{
+        if (error) throw error;
+        res.send(`<script type="text/javascript">alert("수정되었습니다,."); 
+        document.location.href="/mypage";</script>`);
+        connection.query('SELECT * from mypage where id=?',[id], (error, data) =>{
+         const arr=[data[0].id,data[0].type1,data[0].type2,data[0].type3]
+         if (error) throw error;
+         app.route('/change').get((req,res)=>{
+           res.send(arr)
+          })
+        })
+       })
+      console.log(id,skin1)
+    })
+ 
+ 
 
 })
 app.post('/register',(req,res)=>{
@@ -95,6 +123,7 @@ app.post('/register',(req,res)=>{
 app.post('/logout',(req,res)=>{
   res.redirect('/')
 })
+
 
 app.listen(app.get('port'), () => {
   console.log('Express server listening on port ' + app.get('port'));

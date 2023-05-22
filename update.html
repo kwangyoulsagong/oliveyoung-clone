@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>올리브영 온라인몰</title>
+</head>
+<body>
+    <nav class="navbar"><span class="username"></span> <form method="post" action="logout"><a href="/"><li>로그아웃</li></a></form>
+        <a href="/mypage"><li>마이페이지</li></a>
+        <li>장바구니</li>
+        <li>주문배송</li>
+        <li>고객센터</li>   
+        <li>매장안내</li>
+        <li>global</li></nav>
+    <logo><img class="logo" src="img/h1_logo.png" alt=""></logo>
+    <form method="post" action="search"><div class="search-box"><input type="text" class="search" name="search" placeholder="웨이크메이크 신상 파운데이션 쇼케이스행사">
+    <input type="submit" class="enter" value="" /></div></form></div>
+    <form method="post" action="update"><div class="update-profile-container">
+        <h1 class="survey-header">나의 피부 컨디션&관심 카테고리</h1><br/><span class="survey-subheader">나와 비슷한 피부 컨디션을 가진 고객의 리뷰와 나에게 딱 맞는 상품을 모아볼 수 있어요</span>
+    </div><div class="survey-radio1"><span>피부타입</span>
+        <ul class="radius_box_list clrfix" id="skinTypeList">											
+            <li>
+                <input type="radio" id="skinType지성" name="skin_type1" value="지성">
+                <label for="skinType지성">지성</label>
+            </li>
+            <li>
+                <input type="radio" id="skinType건성" name="skin_type1" value="건성">
+                <label for="skinType건성">건성</label>
+            </li>
+            <li>
+                <input type="radio" id="skinType복합성" name="skin_type1" value="복합성" checked="checked">
+                <label for="skinType복합성">복합성</label>
+            </li>
+            <li>
+                <input type="radio" id="skinType민감성" name="skin_type1" value="민감성">
+                <label for="skinType민감성">민감성</label>
+            </li>
+            <li>
+                <input type="radio" id="skinType약건성" name="skin_type1" value="약건성">
+                <label for="skinType약건성">약건성</label>
+            </li>
+            <li>
+                <input type="radio" id="skinType트러블성" name="skin_type1" value="트러블성">
+                <label for="skinType트러블성">트러블성</label>
+            </li>
+            <li>
+                <input type="radio" id="skinType중성" name="skin_type1" value="중성">
+                <label for="skinType중성">중성</label>
+            </li></ul></div>
+        <div class="survey-radio2"><span>피부 톤</span>
+            <ul class="radius_box_list clrfix" id="skinToneList">									
+                <li>
+                    <input type="radio" id="skinTone쿨톤" name="skin_type2" value="쿨톤">
+                    <label for="skinTone쿨톤">쿨톤</label>
+                </li>
+                <li>
+                    <input type="radio" id="skinTone웜톤" name="skin_type2" value="웜톤" checked="checked">
+                    <label for="skinTone웜톤">웜톤</label>
+                </li>
+                <li>
+                    <input type="radio" id="skinTone봄웜톤" name="skin_type2" value="봄웜톤">
+                    <label for="skinTone봄웜톤">봄웜톤</label>
+                </li>
+                <li>
+                    <input type="radio" id="skinTone여름쿨톤" name="skin_type2" value="여름쿨톤">
+                    <label for="skinTone여름쿨톤">여름쿨톤</label>
+                </li>
+                <li>
+                    <input type="radio" id="skinTone가을웜톤" name="skin_type2" value="가을웜톤">
+                    <label for="skinTone가을웜톤">가을웜톤</label>
+                </li>
+                <li>
+                    <input type="radio" id="skinTone겨울쿨톤" name="skin_type2" value="겨울쿨톤">
+                    <label for="skinTone겨울쿨톤">겨울쿨톤</label>
+                </li></ul></div>
+            <div class="survey-radio3"><span>피부 고민</span>
+                <ul id="skinTrobleList" class="radius_box_list clrfix">									
+                    <li>
+                        <input type="checkbox" id="skinTrouble잡티" name="skin_type3" value="잡티">
+                        <label for="skinTrouble잡티">잡티</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="skinTrouble미백" name="skin_type3" value="미백">
+                        <label for="skinTrouble미백">미백</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="skinTrouble주름" name="skin_type3" value="주름">
+                        <label for="skinTrouble주름">주름</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="skinTrouble각질" name="skin_type3" value="각질">
+                        <label for="skinTrouble각질">각질</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="skinTrouble트러블" name="skin_type3" value="트러블">
+                        <label for="skinTrouble트러블">트러블</label>
+                    </li>   
+                    <li>
+                        <input type="checkbox" id="skinTrouble블랙헤드" name="skin_type3" value="블랙헤드">
+                        <label for="skinTrouble블랙헤드">블랙헤드</label>
+                    </li>                
+                    <li>
+                        <input type="checkbox" id="skinTrouble피지과다" name="skin_type3" value="피지과다">
+                        <label for="skinTrouble피지과다">피지과다</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="skinTrouble민감성" name="skin_type3" value="민감성">
+                        <label for="skinTrouble민감성">민감성</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="skinTrouble모공" name="skin_type3" value="모공" checked="checked">
+                        <label for="skinTrouble모공">모공</label>
+                    </li> 
+                    
+                    <li>
+                        <input type="checkbox" id="skinTrouble탄력" name="skin_type3" value="탄력">
+                        <label for="skinTrouble탄력">탄력</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="skinTrouble홍조" name="skin_type3" value="홍조">
+                        <label for="skinTrouble홍조">홍조</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="skinTrouble아토피" name="skin_type3" value="아토피">
+                        <label for="skinTrouble아토피">아토피</label>
+                    </li>                    
+                    <li>
+                        <input type="checkbox" id="skinTrouble다크서클" name="skin_type3" value="다크서클">
+                        <label for="skinTrouble다크서클">다크서클</label>
+                    </li> </ul></div>
+                    <input type="submit" class="subgreen" value="저장하기" /></div></form>
+    
+</body>
+<script>
+    axios.get("http://localhost:3000/customer").then((res)=>{// 요청
+        const account=document.querySelector('.username')
+        account.innerHTML=`올리브`+" "+res.data
+
+    })
+</script>
+</html>

@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     margin-left: 50%;
-    width: 100vw;
+    width: 50%;
     gap: 2vw;
     font-size: 0.75rem;
     list-style: none;
@@ -194,4 +194,140 @@
     align-items: center;
     color: #000000;
     margin-top: -2%;
+}
+.mypage-container{
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    border-top: #000000 1px solid;
+}
+.profile-container{
+    position: absolute;
+    top: 12.5%;
+    left: 15%;
+    width: 20vw;
+    height: 40vh;
+    border:#dedcdc 1px solid;
+}
+.profile-name{
+    position: absolute;
+    top: 20%;
+    left: 18%;
+    font-size: 1.75rem;
+    align-items: center;
+    font-weight: bolder;
+}
+.type1{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    color: #929191;
+}
+.type2{
+    position: absolute;
+    top: 40%;
+    left: 47%;
+    color: #929191;
+}
+.type3{
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    color: #929191;
+}
+.update-button{
+    position: absolute;
+    top: 105%;
+    width: 20vw;
+    height: 5vh;
+    background: white;
+    color: #929191;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    border:#dedcdc 1px solid;
+}
+.update-profile-container{
+    position: absolute;
+    top: 20%;
+    width: 100vw;
+    height: 50vh;
+    border-top: #000000 1px solid; 
+}
+.survey-header, .survey-subheader{
+    display: flex;
+    justify-content: center;
+}
+.survey-subheader{
+    color: #757d86;
+}
+.survey-radio1{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    width: 50vw;
+    height: 7.5vh;
+}
+.survey-radio1 span{
+    position: absolute;
+    top: 40%;
+}
+#skinTypeList{
+    list-style-type: none;
+    display: flex;
+    gap: 1.75vw;
+    margin-top: 3%;
+    margin-left: 2vw;
+}
+.survey-radio2{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+   
+    width: 50vw;
+    height: 7.5vh;
+}
+.survey-radio2 span{
+    position: absolute;
+    top: 40%;
+}
+#skinToneList{
+    list-style-type: none;
+    display: flex;
+    gap: 1.75vw;
+    margin-top: 3%;
+    margin-left: 2vw;
+}
+.survey-radio3{
+    position: absolute;
+    top: 60%;
+    left: 25%;
+   
+    width: 70vw;
+    font-size: 0.75rem;    
+    height: 10vh;
+}
+.survey-radio3 span{
+    position: absolute;
+    top: 40%;
+}
+#skinTrobleList{
+    list-style-type: none;
+    display: flex;
+    gap: 1.75vw;
+    margin-top: 3%;
+    margin-left: 2vw;
+}
+.subgreen{
+    position: absolute;
+    background-color: #9bce26;
+    width: 20.5vw;
+    color: white;
+    height: 5vh;
+    left: 40%;
+    top: 70%;
+    border-color: #9bce26;
 }
