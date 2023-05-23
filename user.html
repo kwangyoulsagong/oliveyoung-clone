@@ -22,7 +22,8 @@
     
 </body>
 <script>
-    axios.get("http://localhost:3000/customer").then((res)=>{// 요청
+    
+    axios.get(`http://localhost:3000/customer`).then((res)=>{// 요청
         const account=document.querySelector('.username')
         account.innerHTML=`올리브`+" "+res.data
 

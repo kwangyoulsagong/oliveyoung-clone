@@ -331,3 +331,39 @@
     top: 70%;
     border-color: #9bce26;
 }
+.container {
+
+    display: flex;
+    margin-top: 30vh;
+    flex-direction: column;
+ 
+  }
+
+  .search1 {
+    font-size: 24px;
+    margin-left: 5vw;
+    margin-bottom: 10px;
+  }
+
+  .search2 {
+    font-size: 20px;
+    
+    margin-bottom: 10px;
+  }
+
+  .search3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .search4 {
+    font-size: 16px;
+ 
+    margin-bottom: 10px;
+  }
+
+  .search5 {
+    font-size: 14px;
+
+    margin-bottom: 10px;
+  }
