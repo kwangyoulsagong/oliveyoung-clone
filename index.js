@@ -30,8 +30,10 @@ app.get("/register", (req, res) => {
  
   res.sendFile(__dirname + "/register.html");
 });
-app.get('/mypage', (req, res) => {
-  res.render('mypage');
+
+app.get("/mypage", (req, res) => {
+ 
+  res.sendFile(__dirname + "/mypage.html");
 });
 app.get("/update", (req, res) => {
  
@@ -93,7 +95,16 @@ app.post('/search', (req, res) => {
     });
   });
 });
+app.post('/purchase', (req, res) => {
+  const productName = req.body.productName; // 제품 이름은 요청의 본문(body)에 포함됩니다.
 
+  // 여기서 구매 처리 로직을 구현합니다.
+  // 제품 이름을 활용하여 구매 작업을 수행합니다.
+
+  // 응답으로 마이페이지 또는 구매 완료 페이지 등을 보내줍니다.
+  // 이 예시에서는 구매 완료 페이지로 리다이렉션합니다.
+  res.send(productName)
+})
 app.post('/login',(req,res)=>{
   const id= req.body.id
   const pw=req.body.pw
@@ -113,36 +124,46 @@ app.post('/login',(req,res)=>{
     }
     //res.send(rows);
   })
+  connection.query('update mypage set id=?', [id], (error, data) => {})
   
-  // Handle POST request to update the profile
-  app.post('/update', (req, res) => {
-    const id = req.body.id; // Assuming the id is sent as a form field
-    const skin1 = req.body.skin_type1;
-    const skin2 = req.body.skin_type2;
-    const skin3 = req.body.skin_type3;
-  
-    connection.query(
-      'UPDATE mypage SET type1=?, type2=?, type3=? WHERE id=?',
-      [skin1, skin2, skin3, id],
-      (error, data) => {
+  app.get('/change', (req, res) => {
+    connection.query('SELECT * from mypage where id=?', [id], (error, data) => {
         if (error) throw error;
-        app.get('/mypage', (req, res) => {
-          const id = req.query.id; // Assuming the id is passed as a query parameter
-          connection.query('SELECT * from mypage where id=?', [id], (error, data) => {
-            if (error) throw error;
-        
-            res.render('mypage', {
-              id: id, // Pass the id value here
-              type1: data[0].type1,
-              type2: data[0].type2,
-              type3: data[0].type3
-            });
-          });
-        });
-        res.redirect(`/mypage?id=${id}`);
-      }
-    );
+        res.json([data[0].id, data[0].type1, data[0].type2, data[0].type3]);
+    });
+   
+});
+
+app.post('/update', (req, res) => {
+  const skin1 = req.body.skin_type1;
+  const skin2 = req.body.skin_type2;
+  const skin3 = req.body.skin_type3;
+
+  connection.query('UPDATE mypage SET type1=?, type2=?, type3=? WHERE id=?', [skin1, skin2, skin3, id], (error, data) => {
+      if (error) throw error;
+
+      connection.query('SELECT * FROM mypage WHERE id=?', [id], (error, data) => {
+          if (error) throw error;
+          
+          res.send(`
+              <script type="text/javascript">
+                  alert("수정되었습니다.");
+                  window.location.href = "/mypage";
+              </script>
+          `);
+      });
   });
+});
+
+app.get('/mypage', (req, res) => {
+    connection.query('SELECT * from mypage where id=?', [id], (error, data) => {
+        if (error) throw error;
+        res.json(data[0]);
+        
+    });
+});
+
+
  
  
 

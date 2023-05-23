@@ -17,7 +17,7 @@
         <a href="/mypage"><li>마이페이지</li></a>
         <li>장바구니</li>
         <li>주문배송</li>
-        <li>고객센터</li>   
+        <li>고객센터</li>       
         <li>매장안내</li>
         <li>global</li>
     </nav>
@@ -28,24 +28,35 @@
             <input type="submit" class="enter" value="" />
         </div>
     </form>
-    <form method="post" action="/update">
-        <div class="mypage-container">
-            <div class="profile-container">
-                <span class="profile-name"><%= id %></span>
-                <span class="type1"><%= type1 %></span>
-                <span class="type2"><%= type2 %></span>
-                <span class="type3"><%= type3 %></span>
-                <button type="submit" class="update-button">프로필 수정</button>
-            </div>
+    <div class="mypage-container">
+        <div class="profile-container">
+            <span class="profile-name"></span>
+            <span class="type1"></span>
+            <span class="type2"></span>
+            <span class="type3"></span>
+            <a href="/update">
+                <div class="update-button">프로필 수정</div>
+            </a>
         </div>
-    </form>
+    </div>
     
 </body>
 <script>
-    axios.get("http://localhost:3000/customer").then((res)=>{
-        const account = document.querySelector('.username')
-        account.innerHTML = `올리브 ${res.data}`
-    })
+    axios.get("http://localhost:3000/customer").then((res) => {
+        const account = document.querySelector('.username');
+        account.innerHTML = `올리브 ${res.data}`;
+    });
 
+
+    axios.get("/change", { params: { id: 'your_id' } }).then((res) => {
+    const profilename = document.querySelector('.profile-name');
+    const type1 = document.querySelector('.type1');
+    const type2 = document.querySelector('.type2');
+    const type3 = document.querySelector('.type3');
+    profilename.innerHTML = res.data.profilename;
+    type1.innerHTML = res.data.type1;
+    type2.innerHTML = res.data.type2;
+    type3.innerHTML = res.data.type3;
+  });
 </script>
 </html>

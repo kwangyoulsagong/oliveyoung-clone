@@ -27,18 +27,39 @@
       <input type="submit" class="enter" value="" />
     </div>
   </form>
-
+  
   <div class="container">
-    <% for (let i = 0; i < resultArray1.length; i++) { %>
-      <span class="search1"><%= resultArray1[i] %></span>
-      <span class="search2"><%= resultArray2[i] %></span>
-      <span class="search3"><%= resultArray3[i] %></span>
-      <span class="search4"><%= resultArray4[i] %></span>
-      <span class="search5"><%= resultArray5[i] %></span>
-    <% } %>
+    <form method="post" action="/purchase">
+      <% for (let i = 0; i < resultArray1.length; i++) { %>
+        <span class="search1" data-product="<%= resultArray1[i] %>"><%= resultArray1[i] %></span>
+        <span class="search2"><%= resultArray2[i] %></span>
+        <span class="search3"><%= resultArray3[i] %></span>
+        <span class="search4"><%= resultArray4[i] %></span>
+        <span class="search5"><%= resultArray5[i] %></span>
+        <input type="submit" class="purchase-button" value="구매"></input>
+      <% } %>
+    </form>
+  </div>
+  
+
   </div>
 </body>
 <script>
+   const purchaseForm = document.querySelector('form');
+  const firstSearch1 = document.querySelector('.search1');
+
+  purchaseForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const productName = firstSearch1.getAttribute('data-product');
+
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 'productName';
+    hiddenInput.value = productName;
+
+    this.appendChild(hiddenInput);
+    this.submit();
+  });
   axios.get('/searchproduct1').then((res) => {
     const account1 = document.querySelectorAll('.search1');
     for (let i = 0; i < res.data.length; i++) {
