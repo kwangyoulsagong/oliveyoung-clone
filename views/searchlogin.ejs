@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>올리브영 온라인몰</title>
+</head>
+<body>
+    <nav class="navbar"><span class="username"></span> <form method="post" action="logout"><a href="/"><li>로그아웃</li></a></form>
+        <button onclick="goToUpdatePage()"><li>마이페이지</li></button>
+        <li>장바구니</li>
+        <li>주문배송</li>
+        <li>고객센터</li>   
+        <li>매장안내</li>
+        <li>global</li></nav>
+    <logo><img class="logo" src="img/h1_logo.png" alt=""></logo>
+    <form method="post" action="search"><div class="search-box"><input type="text" class="search" name="search" placeholder="웨이크메이크 신상 파운데이션 쇼케이스행사">
+    <input type="submit" class="enter" value="" /></div></form>
+    <div class="container">
+        <form method="post" action="purchase">
+          <% for (let i = 0; i < resultArray1.length; i++) { %>
+            <div class="pw"></div>
+            <span class="search1" ><%= resultArray1[i] %></span>
+            <span class="search2"><%= resultArray2[i] %></span>
+            <span class="search3"><%= resultArray3[i] %></span>
+            <span class="search4"><%= resultArray4[i] %></span>
+            <span class="search5"><%= resultArray5[i] %></span>
+            <div class="button-container">
+              <input type="submit" class="purchase-button" name="search1" value="<%= resultArray3[i] %>"><span>구매</span>
+            </div>
+            
+          <% } %>
+        </form>
+      </div></div>
+
+    
+</body>
+<script>
+    const id=[]
+    axios.get(`http://localhost:3000/customer`).then((res)=>{// 요청
+        const account=document.querySelector('.username')
+        account.innerHTML=`올리브`+" "+res.data[0]
+        id.push(res.data[1])
+    })
+    function goToUpdatePage() {
+            window.location.href = `/mypage:${id[0]}`;
+    }
+    axios.get('/searchproduct1').then((res) => {
+    const account1 = document.querySelectorAll('.search1');
+    for (let i = 0; i < res.data.length; i++) {
+      account1[i].innerHTML = res.data[i];
+    }
+  });
+
+  axios.get('/searchproduct2').then((res) => {
+    const account2 = document.querySelectorAll('.search2');
+    for (let i = 0; i < res.data.length; i++) {
+      account2[i].innerHTML = res.data[i];
+    }
+  });
+
+  axios.get('/searchproduct3').then((res) => {
+    const account3 = document.querySelectorAll('.search3');
+    for (let i = 0; i < res.data.length; i++) {
+      account3[i].innerHTML = res.data[i];
+    }
+  });
+
+  axios.get('/searchproduct4').then((res) => {
+    const account4 = document.querySelectorAll('.search4');
+    for (let i = 0; i < res.data.length; i++) {
+      account4[i].innerHTML = res.data[i];
+    }
+  });
+
+  axios.get('/searchproduct5').then((res) => {
+    const account5 = document.querySelectorAll('.search5');
+    for (let i = 0; i < res.data.length; i++) {
+      account5[i].innerHTML = res.data[i];
+    }
+  });
+</script>
+   
+</script>
+</html>

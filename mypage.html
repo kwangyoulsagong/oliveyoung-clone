@@ -14,7 +14,7 @@
         <form method="post" action="logout">
             <a href="/"><li>로그아웃</li></a>
         </form>
-        <a href="/mypage"><li>마이페이지</li></a>
+        <a onclick="goTomyPage()"><li>마이페이지</li></a>
         <li>장바구니</li>
         <li>주문배송</li>
         <li>고객센터</li>       
@@ -35,22 +35,20 @@
             <span class="type2" id="type2"></span>
             <span class="type3" id="type3"></span>
             <button class="update-button" onclick="goToUpdatePage()">프로필 수정</button>
+            <form method="post" action="/delete"><input type="submit" class="delete-button" value="회원탈퇴"></form>
         </div>
     </div>
     <div class="my-cart-container">
-        <span class="ordernumber" id="ordernumber"></span>
-        <span class="productnumber" id="productnumber"></span>
-        <span class="company" id="company"></span>
-        <span class="productname" id="productname"></span>
-        <span class="price" id="price"></span>
-        <span class="arrive" id="arrive"></span>
+        <div class="cart-items"></div>
     </div>
     
 </body>
 <script>
+    const id=[]
     axios.get("http://localhost:3000/customer").then((res) => {
         const account = document.querySelector('.username');
-        account.innerHTML = `올리브 ${res.data}`;
+        account.innerHTML = `올리브 ${res.data[0]}`;
+        id.push(res.data[1])
     });
 
 
@@ -72,10 +70,10 @@
     }
 
     function goToUpdatePage() {
-        window.location.href = "/update";
+        window.location.href = `/update`;
     }
 
-    axios.get("http://localhost:3000/change").then((res) => {
+    axios.get(`http://localhost:3000/change`).then((res) => {
         const profilename = document.getElementById('profileName');
         const skin1Element = document.getElementById('type1');
         const skin2Element = document.getElementById('type2');
@@ -85,5 +83,10 @@
         skin2Element.innerHTML = res.data[2];
         skin3Element.innerHTML = res.data[3];
     });
+    function goTomyPage() {
+            window.location.href = `/mypage:${id[0]}`;
+    }
+
+
 </script>
 </html>
