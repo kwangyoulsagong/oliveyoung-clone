@@ -27,7 +27,6 @@
       <input type="submit" class="enter" value="" />
     </div>
   </form>
-  
   <div class="container">
     <form method="post" action="purchase">
       <% for (let i = 0; i < resultArray1.length; i++) { %>
@@ -35,6 +34,9 @@
         <span class="search1" ><%= resultArray1[i] %></span>
         <span class="search2"><%= resultArray2[i] %></span>
         <span class="search3"><%= resultArray3[i] %></span>
+        <div class="image-box">
+          <img class="product-image" src="<%= resultArray6[i] %>" alt="Product Image">
+        </div>
         <span class="search4"><%= resultArray4[i] %></span>
         <span class="search5"><%= resultArray5[i] %></span>
         <div class="button-container">

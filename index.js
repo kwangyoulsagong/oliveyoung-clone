@@ -55,12 +55,18 @@ app.get('/users', (req, res) => {
     res.send(rows);
   });
 });
+const productImages = {
+  '비레디 블루쿠션 SPF 34 PA++/15g (본품/리필 택1)': 'https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016743115ko.jpg?l=ko',
+  '[제니 PICK] 헤라 블랙 쿠션 (본품 15g +리필 15g) / 10 color': 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0014/A00000014984654ko.jpg?l=ko',
+  // 다른 제품들의 이미지 링크들...
+};
+
 app.post('/search', (req, res) => {
   const search = req.body.search;
   const searchTerm = '%' + search + '%'; // 검색어 앞뒤에 와일드카드를 추가합니다.
 
-  const query = 'SELECT * FROM cosmetics WHERE productname LIKE ?';
-  connection.query(query, [searchTerm], (error, results) => {
+  const query = 'SELECT * FROM cosmetics WHERE productname LIKE ? OR company LIKE ? OR type LIKE ?';
+  connection.query(query, [searchTerm, searchTerm, searchTerm], (error, results) => {
     if (error) throw error;
 
     const resultArray1 = [];
@@ -68,6 +74,8 @@ app.post('/search', (req, res) => {
     const resultArray3 = [];
     const resultArray4 = [];
     const resultArray5 = [];
+    const resultArray6=[];
+
 
     for (let i = 0; i < results.length; i++) {
       const arr1 = results[i].company;
@@ -84,6 +92,9 @@ app.post('/search', (req, res) => {
 
       const arr5 = results[i].saleprice;
       resultArray5.push(arr5);
+      const arr6=results[i].image_url;
+      resultArray6.push(arr6)
+
     }
 
     res.render('search', {
@@ -91,10 +102,12 @@ app.post('/search', (req, res) => {
       resultArray2,
       resultArray3,
       resultArray4,
-      resultArray5
+      resultArray5,
+      resultArray6
     });
   });
 });
+
 
 app.post('/login',(req,res)=>{
   const id= req.body.id
@@ -275,7 +288,8 @@ app.post('/login',(req,res)=>{
                 <h1>구매목록 및 구매</h1>
 
                 <div class="product-details">
-                  <h2>Selected Product Details</h2>
+                  <h2>현재 구매한 상품</h2>
+                  <p><strong>Order ID:</strong> ${randomInt}</p>
                   <p><strong>Product ID:</strong> ${productid}</p>
                   <p><strong>Company:</strong> ${company}</p>
                   <p><strong>Product Name:</strong> ${productname}</p>
@@ -283,11 +297,12 @@ app.post('/login',(req,res)=>{
                 </div>
 
                 <div class="cart-items">
-                  <h2>Cart Items</h2>
+                  <h2>구매 목록</h2>
                   ${data
                     .map(
                       item => `
                         <div class="cart-item">
+                        <p><strong>Order ID:</strong> ${item.orderid}</p>
                           <p><strong>Product ID:</strong> ${item.productid}</p>
                           <p><strong>Company:</strong> ${item.company}</p>
                           <p><strong>Product Name:</strong> ${item.productname}</p>
