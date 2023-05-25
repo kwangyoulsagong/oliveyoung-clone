@@ -151,6 +151,8 @@ app.post('/login',(req,res)=>{
       const resultArray3 = [];
       const resultArray4 = [];
       const resultArray5 = [];
+      const resultArray6=[];
+  
   
       for (let i = 0; i < results.length; i++) {
         const arr1 = results[i].company;
@@ -167,6 +169,9 @@ app.post('/login',(req,res)=>{
   
         const arr5 = results[i].saleprice;
         resultArray5.push(arr5);
+        const arr6=results[i].image_url;
+        resultArray6.push(arr6)
+  
       }
   
       res.render('searchlogin', {
@@ -174,7 +179,8 @@ app.post('/login',(req,res)=>{
         resultArray2,
         resultArray3,
         resultArray4,
-        resultArray5
+        resultArray5,
+        resultArray6
       });
     });
   });
