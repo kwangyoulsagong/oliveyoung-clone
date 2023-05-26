@@ -28,7 +28,7 @@
     </div>
   </form>
   <div class="container">
-    <form method="post" action="purchase">
+    <div  >
       <% for (let i = 0; i < resultArray1.length; i++) { %>
         <div class="pw"></div>
         <span class="search1" ><%= resultArray1[i] %></span>
@@ -40,11 +40,11 @@
         <span class="search4"><%= resultArray4[i] %></span>
         <span class="search5"><%= resultArray5[i] %></span>
         <div class="button-container">
-          <input type="submit" class="purchase-button" name="search1" value="<%= resultArray3[i] %>"><span>구매</span>
+          <button class="purchase-button"><%= resultArray3[i] %></button><span>구매</span>
         </div>
         
       <% } %>
-    </form>
+      </div>
   </div>
   
 
@@ -86,5 +86,11 @@
       account5[i].innerHTML = res.data[i];
     }
   });
+  const btn=document.querySelectorAll('.purchase-button')
+  for(let i=0; i<btn.length; i++){
+    btn[i].addEventListener('click',()=>{
+    alert('로그인해주세요')
+  })
+  }
 </script>
 </html>

@@ -12,6 +12,12 @@
     top: 7%;
     width: 16.5vw;
     left: 16.5%;
+    
+}
+.logoutbtn{
+    background: transparent;
+    border: transparent;
+    color: rgb(154, 150, 150); 
 }
 .slider-cont{
     position: absolute;
@@ -454,24 +460,31 @@
     align-items: center;
     font-weight: bolder;
 }
-.type1{
+.type1 {
     position: absolute;
     top: 40%;
-    left: 30%;
+    left: 20%;
     color: #929191;
-}
-.type2{
+    white-space: nowrap;
+  }
+  
+  .type2 {
     position: absolute;
     top: 40%;
-    left: 47%;
+    left: 50%;
+    transform: translateX(-50%);
     color: #929191;
-}
-.type3{
+    white-space: nowrap;
+  }
+  
+  .type3 {
     position: absolute;
     top: 40%;
-    left: 60%;
+    right: 17.5%;
     color: #929191;
-}
+    white-space: nowrap;
+  }
+  
 .update-button{
     position: absolute;
     top: 105%;
@@ -555,7 +568,7 @@
     left: 25%;
    
     width: 70vw;
-    font-size: 0.75rem;    
+    font-size: 0.9rem;    
     height: 10vh;
 }
 .survey-radio3 span{
@@ -565,7 +578,7 @@
 #skinTrobleList{
     list-style-type: none;
     display: flex;
-    gap: 1.75vw;
+    gap: 1vw;
     margin-top: 3%;
     margin-left: 2vw;
 }
