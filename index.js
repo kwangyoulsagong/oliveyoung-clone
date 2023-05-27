@@ -210,8 +210,8 @@ app.post('/login',(req,res)=>{
       const search = req.body.search;
       const searchTerm = '%' + search + '%'; // 검색어 앞뒤에 와일드카드를 추가합니다.
     
-      const query = 'SELECT * FROM cosmetics WHERE productname LIKE ?';
-      connection.query(query, [searchTerm], (error, results) => {
+      const query = 'SELECT * FROM cosmetics WHERE productname LIKE ? OR company LIKE ? OR type LIKE ?';
+      connection.query(query, [searchTerm,searchTerm,searchTerm], (error, results) => {
         if (error) throw error;
     
         const resultArray1 = [];
