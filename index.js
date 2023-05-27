@@ -281,138 +281,189 @@ app.post('/login',(req,res)=>{
             [randomInt, productid, id, company, productname, price],
             (error, data) => {
               if (error) throw error;
-              
-              // Retrieve the updated cart data
-              connection.query('SELECT * FROM mycart WHERE id = ?', [id], (error, data) => {
-                if (error) throw error;
-      
-                const html = `
-                <!DOCTYPE html>
-                <html>
-                <head>
-                  <title>구매목록/올리브영</title>
-                  <style>
-                    /* Add your CSS styles here */
-                    body {
-                      font-family: Arial, sans-serif;
-                      background-color: #f2f2f2;
-                      margin: 0;
-                      padding: 0;
-                    }
-    
-                    .container {
-                      max-width: 600px;
-                      margin: 0 auto;
-                      padding: 20px;
-                      background-color: #fff;
-                      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                    }
-    
-                    h1 {
-                      text-align: center;
-                      color: #0096c7;
-                      margin-bottom: 20px;
-                    }
-    
-                    .product-details {
-                      margin-top: 20px;
-                      border-top: 1px solid #ccc;
-                      padding-top: 20px;
-                    }
-    
-                    .product-details p {
-                      margin: 0;
-                    }
-    
-                    .cart-items {
-                      margin-top: 20px;
-                    }
-    
-                    .cart-item {
-                      border: 1px solid #ccc;
-                      margin-bottom: 10px;
-                      padding: 10px;
-                    }
-    
-                    .cart-item p {
-                      margin: 0;
-                    }
-    
-                    .arrival-date {
-                      margin-top: 20px;
-                      font-style: italic;
-                      color: #888;
-                    }
-    
-                    .success-message {
-                      margin-top: 20px;
-                      text-align: center;
-                      color: green;
-                    }
-    
-                    .back-button {
-                      margin-top: 20px;
-                      text-align: center;
-                    }
-    
-                    .back-button a {
-                      display: inline-block;
-                      padding: 10px 20px;
-                      background-color: #0096c7;
-                      color: #fff;
-                      text-decoration: none;
-                      border-radius: 4px;
-                    }
-                  </style>
-                </head>
-                <body>
-                  <div class="container">
-                    <h1>구매목록 및 구매</h1>
-    
-                    <div class="product-details">
-                      <h2>현재 구매한 상품</h2>
-                      <p><strong>Order ID:</strong> ${randomInt}</p>
-                      <p><strong>Product ID:</strong> ${productid}</p>
-                      <p><strong>Company:</strong> ${company}</p>
-                      <p><strong>Product Name:</strong> ${productname}</p>
-                      <p><strong>Price:</strong> ${price}</p>
-                    </div>
-    
-                    <div class="cart-items">
-                      <h2>구매 목록</h2>
-                      ${data
-                        .map(
-                          item => `
-                            <div class="cart-item">
-                            <p><strong>Order ID:</strong> ${item.orderid}</p>
-                              <p><strong>Product ID:</strong> ${item.productid}</p>
-                              <p><strong>Company:</strong> ${item.company}</p>
-                              <p><strong>Product Name:</strong> ${item.productname}</p>
-                              <p><strong>Price:</strong> ${item.price}</p>
-                            </div>
-                          `
-                        )
-                        .join('')}
-                    </div>
-    
-                    <p class="arrival-date">예상 도착 날짜: 5월 31일 도착</p>
-    
-                    <p class="success-message">구매 성공! 곧 리디렉션됩니다.</p>
-    
-                    <div class="back-button">
-                      <a href="/user:${id}">뒤로가기</a>
-                    </div>
-                  </div>
-                </body>
-                </html>
-              `;
-    
-              res.send(html);
-              });
+        
+              connection.query(
+                'SELECT * FROM mycart WHERE id = ?',
+                [id],
+                (error, data) => {
+                  if (error) throw error;
+        
+                  const html = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                      <title>구매목록/올리브영</title>
+                      <style>
+                        body {
+                          font-family: Arial, sans-serif;
+                          background-color: #f2f2f2;
+                          margin: 0;
+                          padding: 0;
+                        }
+        
+                        .container {
+                          max-width: 600px;
+                          margin: 0 auto;
+                          padding: 20px;
+                          background-color: #fff;
+                          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                        }
+        
+                        h1 {
+                          text-align: center;
+                          color: #45a049;
+                          margin-bottom: 20px;
+                        }
+        
+                        table {
+                          width: 100%;
+                          border-collapse: collapse;
+                        }
+        
+                        th, td {
+                          padding: 5px;
+                          text-align: center;
+                          font-size: 0.5rem;
+                          border-bottom: 1px solid #ccc;
+                        }
+        
+                        .cart-item button {
+                          padding: 6px 12px;
+                          background-color: #dc3545;
+                          color: #fff;
+                          border: none;
+                          border-radius: 4px;
+                          cursor: pointer;
+                        }
+        
+                        .cart-item button:hover {
+                          background-color: #c82333;
+                        }
+        
+                        .arrival-date {
+                          margin-top: 20px;
+                          font-style: italic;
+                          color: #888;
+                        }
+        
+                        .success-message {
+                          margin-top: 20px;
+                          text-align: center;
+                          color: green;
+                        }
+        
+                        .back-button {
+                          margin-top: 20px;
+                          text-align: center;
+                        }
+        
+                        .back-button a {
+                          display: inline-block;
+                          padding: 10px 20px;
+                          background-color: #45a049;
+                          color: #fff;
+                          text-decoration: none;
+                          border-radius: 4px;
+                        }
+                      </style>
+                    </head>
+                    <body>
+                      <div class="container">
+                        <h1>구매목록 및 구매</h1>
+        
+                        <div class="product-details">
+                          <h2>현재 구매한 상품</h2>
+                          <table>
+                            <tr>
+                            <th>주문번호</th>
+                            <th>고객 아이디</th>
+                            <th>상품번호</th>
+                            <th>제품회사</th>
+                            <th>상품명</th>
+                            <th>가격</th>
+                            </tr>
+                            <tr>
+                              <td>${randomInt}</td>
+                              <td>${id}</td>
+                              <td>${productid}</td>
+                              <td>${company}</td>
+                              <td>${productname}</td>
+                              <td>${price}</td>
+                            </tr>
+                          </table>
+                        </div>
+        
+                        <div class="cart-items">
+                          <h2>구매 목록</h2>
+                          <table>
+                            <tr>
+                              <th>주문번호</th>
+                              <th>고객 아이디</th>
+                              <th>상품번호</th>
+                              <th>제품회사</th>
+                              <th>상품명</th>
+                              <th>가격</th>
+                              <th>상태</th>
+                            </tr>
+                            ${data
+                              .map(
+                                item => `
+                                  <tr class="cart-item">
+                                    <td>${item.orderid}</td>
+                                    <td>${item.id}</td>
+                                    <td>${item.productid}</td>
+                                    <td>${item.company}</td>
+                                    <td>${item.productname}</td>
+                                    <td>${item.price}</td>
+                                    <td>
+                                      <form action="/cancel" method="post">
+                                        <input type="hidden" name="orderid" value="${item.orderid}">
+                                        <input type="hidden" name="id" value="${item.id}">
+                                        <input type="hidden" name="productid" value="${item.productid}">
+                                        <button type="submit">취소</button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                `
+                              )
+                              .join('')}
+                          </table>
+                        </div>
+        
+                        <p class="arrival-date">예상 도착 날짜: 5월 31일 도착</p>
+        
+                        <p class="success-message">구매 성공! 곧 리디렉션됩니다.</p>
+        
+                        <div class="back-button">
+                          <a href="/user:${id}">뒤로가기</a>
+                        </div>
+                      </div>
+                    </body>
+                    </html>
+                  `;
+        
+                  res.send(html);
+                }
+              );
             }
           );
         });
-      });
+        
+        app.post('/cancel', (req, res) => {
+          const { orderid, id, productid } = req.body;
+        
+          connection.query(
+            'DELETE FROM mycart WHERE orderid = ? AND id = ? AND productid = ?',
+            [orderid, id, productid],
+            (error, result) => {
+              if (error) throw error;
+              res.redirect(`/user:${id}`);
+            }
+          );
+        });
+            }
+          );
+  
       
   });
  

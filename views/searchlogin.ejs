@@ -21,23 +21,26 @@
     <input type="submit" class="enter" value="" /></div></form>
     <div class="container">
       <form method="post" action="purchase">
-        <% for (let i = 0; i < resultArray1.length; i++) { %>
-          <div class="pw"></div>
-          <span class="search1" ><%= resultArray1[i] %></span>
-          <span class="search2"><%= resultArray2[i] %></span>
-          <span class="search3"><%= resultArray3[i] %></span>
-          <div class="image-box">
-            <img class="product-image" src="<%= resultArray6[i] %>" alt="Product Image">
+        <div class="grid-container">
+          <% for (let i = 0; i < resultArray1.length; i++) { %>
+          <div class="box">
+            <div class="pw"></div>
+            <span class="search1"><%= resultArray1[i] %></span>
+            <span class="search2"><%= resultArray2[i] %></span>
+            <div class="image-box">
+              <img class="product-image" src="<%= resultArray6[i] %>" alt="Product Image">
+            </div>
+            <span class="search3"><%= resultArray3[i] %></span>
+            <span class="search4"><%= resultArray4[i] %></span>
+            <span class="search5"><%= resultArray5[i] %></span>
+            <div class="button-container">
+              <input type="submit" class="purchase-button" name="search1" value="<%= resultArray3[i] %>"><span>구매</span>
+            </div>
           </div>
-          <span class="search4"><%= resultArray4[i] %></span>
-          <span class="search5"><%= resultArray5[i] %></span>
-          <div class="button-container">
-            <input type="submit" class="purchase-button" name="search1" value="<%= resultArray3[i] %>"><span>구매</span>
-          </div>
-          
-        <% } %>
+          <% } %>
+        </div>
       </form>
-      </div></div>
+    </div>
 
     
 </body>
