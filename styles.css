@@ -17,6 +17,8 @@
 .logoutbtn{
     background: transparent;
     border: transparent;
+    font-size: 0.75rem;
+    color: rgb(154, 150, 150);
 }
 .slider-cont{
     position: absolute;

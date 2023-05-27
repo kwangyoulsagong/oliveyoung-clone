@@ -61,15 +61,10 @@ app.get('/users', (req, res) => {
     res.send(rows);
   });
 });
-const productImages = {
-  '비레디 블루쿠션 SPF 34 PA++/15g (본품/리필 택1)': 'https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016743115ko.jpg?l=ko',
-  '[제니 PICK] 헤라 블랙 쿠션 (본품 15g +리필 15g) / 10 color': 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0014/A00000014984654ko.jpg?l=ko',
-  // 다른 제품들의 이미지 링크들...
-};
 
 app.post('/search', (req, res) => {
   const search = req.body.search;
-  const searchTerm = '%' + search + '%'; // 검색어 앞뒤에 와일드카드를 추가합니다.
+  const searchTerm = '%' + search + '%'; 
 
   const query = 'SELECT * FROM cosmetics WHERE productname LIKE ? OR company LIKE ? OR type LIKE ?';
   connection.query(query, [searchTerm, searchTerm, searchTerm], (error, results) => {
@@ -124,13 +119,11 @@ app.post('/login',(req,res)=>{
     if(data.length>0 && pw==data[0].passward){
       req.session.userId = id; 
       app.get(`/user:id`, (req, res) => {
-        const userId = req.session.userId; // Retrieve the user ID from the session
+        const userId = req.session.userId; 
     
-        // Check if the requested user ID matches the session user ID
         if (userId ) {
           res.sendFile(__dirname + "/user.html");
         } else {
-          // Redirect to login page or handle unauthorized access
           res.redirect('/login');
         }
       })
@@ -148,13 +141,12 @@ app.post('/login',(req,res)=>{
       if (err) throw err;
 
       if (result[0].count === 0) {
-          // ID does not exist in mypagetable, so perform the insert
           connection.query('INSERT INTO mypage (id) VALUES (?)', [id], (err, result) => {
               if (err) throw err;
-              console.log('ID inserted into mypagetable.');
+              
           });
       } else {
-          console.log('ID already exists in mypagetable. Skipping insertion.');
+          
       }
       app.get('/change', (req, res) => {
         const id = req.session.userId;
@@ -262,7 +254,7 @@ app.post('/login',(req,res)=>{
     });
     
       app.post('/purchase', (req, res) => {
-        const selectedProduct = req.body.search1; // Selected product name
+        const selectedProduct = req.body.search1; 
       
         const query = 'SELECT * FROM cosmetics WHERE productname = ?';
         connection.query(query, [selectedProduct], (error, results) => {
@@ -275,7 +267,6 @@ app.post('/login',(req,res)=>{
       
           const randomInt = Math.floor(Math.random() * 200000) + 100000;
           const id = req.session.userId;
-          // Insert the product into the user's cart
           connection.query(
             'INSERT INTO mycart VALUES (?, ?, ?, ?, ?, ?, "5월31일 도착")',
             [randomInt, productid, id, company, productname, price],
