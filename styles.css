@@ -14,6 +14,44 @@
     left: 16.5%;
     
 }
+.menu-bar{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 15%;
+    gap: 3.2vw;
+    width: 100vw;
+    height: 5vh;
+    border-top: 1px rgb(213, 211, 211) solid;
+}
+.menu-bar li{
+    list-style: none;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #000000;
+    
+}
+.menu-button{
+
+    border: 1px rgb(213, 211, 211) solid;
+    width: 11.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: bold;
+    color: #000000;
+}
+.menu-button a{   
+     content: "";
+    display: inline-block;
+    margin: 0 8px 0 0;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_menu_off.png) 0 14px no-repeat;
+    width: 24px;
+    height: 44px;
+    vertical-align: middle;
+}
 .logoutbtn{
     background: transparent;
     border: transparent;
