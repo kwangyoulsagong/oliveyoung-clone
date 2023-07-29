@@ -118,6 +118,42 @@
     font-size: 0.8rem;
     color: #fff;
     font-weight: 700;
+    display: flex;
+    margin-left: 20%;
+}
+.li-hover{
+    margin-left: -30%;
+}
+.li-hover:hover{
+    background: #000000;
+    opacity: 80%;
+}
+.li-hover-container{
+    position: absolute;
+    left: 27.75%;
+    top: 20.3%;
+    background: #fff;
+    width: 12vw;
+    height: 50vh;
+    z-index: 999999999;
+    visibility: hidden;
+    color: black;
+}
+.comapany-style{
+
+}
+.product-style{
+    
+}
+.price-style{
+    
+}
+.saledprice-style{
+    color: red;
+    
+}
+.img-style{
+    
 }
 
 .awards span{

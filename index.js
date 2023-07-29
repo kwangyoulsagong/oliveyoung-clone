@@ -49,10 +49,31 @@ app.get("/update", (req, res) => {
 
 // configuration =========================
 app.set('port', process.env.PORT || 3000);
+app.post("/sendIndex", (req, res) => {
+  const index = req.body.index;
+  console.log("받은 인덱스:", index); // 받은 인덱스가 제대로 출력되는지 확인
+  connection.query('select * from MyListTable where id like ?',[index],(error,results)=>{
+    console.log(results[0].company)
+    if (results.length > 0) {
+      // DB에서 가져온 결과가 있으면 해당 값을 클라이언트로 응답합니다.
+      const data = results[0];
+      res.json({
+        company: data.company,
+        product: data.product,
+        price: data.price,
+        saledprice: data.saledprice,
+        image_url: data.image_url,
+      });
+    } else {
+      // DB에서 가져온 결과가 없으면 null을 클라이언트로 응답합니다.
+      res.json({ receivedIndex: null });
+    }
+  })
 
-app.get('/', (req, res) => {
-  res.send('Root');
+  // 예시로 index를 그대로 클라이언트로 응답합니다.
+  
 });
+
 
 app.get('/users', (req, res) => {
   connection.query('SELECT * from customer', (error, rows) => {
