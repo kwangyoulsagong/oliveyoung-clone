@@ -211,6 +211,7 @@
     background: lightblue;
     border-top: black 2px solid;
     overflow: hidden;
+    scroll-behavior: smooth;
 }
 .slider{
     position: absolute;

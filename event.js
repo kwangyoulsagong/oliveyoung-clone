@@ -29,7 +29,16 @@ const imglink=[
         
         
     })
-    rightBtn.addEventListener('click',()=>{
+    function moveToNextSlide() {
+        slidercont.scrollLeft += window.innerWidth;
+        count++;
+        if (count === 11) {
+          slidercont.scrollLeft = 0;
+          count = 0;
+        }
+        pagenum.innerHTML = `${count + 1}/11`;
+      }
+      rightBtn.addEventListener('click',()=>{
         slidercont.scrollLeft-=window.innerWidth
         count--
         if(count<0){
@@ -51,6 +60,12 @@ const imglink=[
     leftBtn.addEventListener('mouseout',()=>{
         leftBtn.style.scale="1"
     })
+    let slideInterval;
+    function startSlideAuto() {
+      
+        slideInterval = setInterval( moveToNextSlide, 5000); // 5초마다 슬라이더 이동
+      }
+    startSlideAuto()
 imglink.forEach((link) => {
   const imageElement = document.createElement('div');
   imageElement.style.backgroundImage = `url(${link})`;
