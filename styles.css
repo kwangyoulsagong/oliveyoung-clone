@@ -468,6 +468,12 @@
     background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ico_more_5x10.png) center right 0/5px ;
     background-repeat: no-repeat;
 }
+.simillar-container{
+    position: absolute;
+    top: 15%;
+    width: 15vw;
+    height: 40vh;
+}
 
 .search-box{
     position: absolute;

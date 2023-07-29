@@ -142,7 +142,7 @@ for(let i=0; i<liHover.length; i++){
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-const simillarCont=document.querySelector();
+const simillarCont=document.querySelector(".simillar-container");
 const rnd=getRandomNumber(1, 30);
 console.log("보낼 랜덤숫자:", rnd);
 fetch("/simillar", {
@@ -169,26 +169,26 @@ fetch("/simillar", {
 
   // Product 스타일을 적용하는 클래스 추가
   const productnameSpan = document.createElement("div");
-  productnameSpan.textContent = ` ${productData.productname}`;
+  productnameSpan.textContent = ` ${productData.prodcutname}`;
   productnameSpan.classList.add("productname-style"); // .product-style 클래스 추가
-  SimillarDiv.appendChild(productSpan);
+  SimillarDiv.appendChild(productnameSpan);
 
   // Price 스타일을 적용하는 클래스 추가
   const priceSpan = document.createElement("div");
   priceSpan.textContent = ` ${productData.price}`;
-  priceSpan.classList.add("price-style"); // .price-style 클래스 추가
+  priceSpan.classList.add("simillarprice-style"); // .price-style 클래스 추가
   SimillarDiv.appendChild(priceSpan);
 
   // Saled Price 스타일을 적용하는 클래스 추가
   const saledPriceSpan = document.createElement("div");
   saledPriceSpan.textContent = ` ${productData.saleprice}`;
-  saledPriceSpan.classList.add("saledprice-style"); // .saledprice-style 클래스 추가
+  saledPriceSpan.classList.add("saleprice-style"); // .saledprice-style 클래스 추가
   SimillarDiv.appendChild(saledPriceSpan);
 
   // 이미지 스타일을 적용하는 클래스 추가
   const img = document.createElement("img");
   img.src = productData.image_url;
-  img.classList.add("img-style"); // .img-style 클래스 추가
+  img.classList.add("simillarimg-style"); // .img-style 클래스 추가
   SimillarDiv.appendChild(img);
 
   // 제품 컨테이너에 추가하기
