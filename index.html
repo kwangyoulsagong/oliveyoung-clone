@@ -56,7 +56,7 @@
 
     <div class="banner-event"><img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/138/1186306515151698977.jpg" alt=""><img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/138/1374134677317021833.jpg" alt=""></div>
     <div class="slider-cont">
-        <span class="banner">멤버쉽을 위한 <br/><span class="header1">단 3일간 <br/>만나는<br/>올리브데이</span><br/><span class="header2">멤버쉽전용 쿠폰 헤택 누려요</span></span>
+        <span class="banner">LUXE EDIT<br/><span class="header1">여름에도<br/>무너지지 않는<br/>프리미엄 뷰티</span><br/><span class="header2">7월의 뷰티 컬쳐:FIX&MIX</span></span>
         <span class="banner2">맘&베이비 <br/><span class="header3">소중한 <br/>우리아이를 위한<br/>풀케어</span><br/><span class="header4">7일간 특가, 장바구니 쿠폰</span></span>
         <span class="banner3">피노 <br/><span class="header5">빛을 머금어 <br/>반짜이는<br/>머릿결</span><br/><span class="header6">최대24%할인</span></span>
         <span class="banner4">브래드워크플러스 <br/><span class="header7">가벼운 여름을 <br/>GRN+과 함께<br/>준비하세요</span><br/><span class="header8">베스트최대57%할인</span></span>
@@ -74,135 +74,11 @@
     <button class="leftbtn">></button>
     <span class="pagenum"></span>
     <button class="rightbtn">right</button>
+    <div class="simillar-customer">
+        <span>유사한 고객님이<br/>많이 구매했어요</span>
+        <div class="more-container"><div class="more">더보기</div></div>
+    </div>
     
 </body>
-<script>
-    const imglink=['https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/4739290404550836865.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/5997961015899981333.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/1291634454642887268.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/406045732778084191.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/6107563981408374423.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/1468249365262134863.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/5359945679013443695.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/1164404406030173346.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/5135699834869950920.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/2350373517421172364.jpg',
-    'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/8557066715352624867.jpg']
-    const sliderDiv = document.querySelector('.slider');
-    const slidercont= document.querySelector('.slider-cont')
-    const leftBtn=document.querySelector('.leftbtn')
-    const rightBtn=document.querySelector('.rightbtn')
-    const pagenum=document.querySelector('.pagenum')
-    
-    var count=0;
-    pagenum.innerHTML=`${count+1}/11`
-    leftBtn.addEventListener('click',()=>{
-        slidercont.scrollLeft+=window.innerWidth
-        count++
-        if(count==11){
-            slidercont.scrollLeft=0
-            count=0
-        }
-        pagenum.innerHTML=`${count+1}/11`
-        
-        
-    })
-    rightBtn.addEventListener('click',()=>{
-        slidercont.scrollLeft-=window.innerWidth
-        count--
-        if(count<0){
-            slidercont.scrollLeft=window.innerWidth*10
-            count=10
-        }
-        pagenum.innerHTML=`${count+1}/11`
-        
-    })
-    rightBtn.addEventListener('mouseover',()=>{
-        rightBtn.style.scale="1.2"
-    })
-    rightBtn.addEventListener('mouseout',()=>{
-        rightBtn.style.scale="1"
-    })
-    leftBtn.addEventListener('mouseover',()=>{
-        leftBtn.style.scale="1.2"
-    })
-    leftBtn.addEventListener('mouseout',()=>{
-        leftBtn.style.scale="1"
-    })
-imglink.forEach((link) => {
-  const imageElement = document.createElement('div');
-  imageElement.style.backgroundImage = `url(${link})`;
-  sliderDiv.appendChild(imageElement);
-});
-const listarr=["hello","bitch"]
-const liHover=document.querySelectorAll(".li-hover");
-const liCont=document.querySelector(".li-hover-container")
-for(let i=0; i<liHover.length; i++){
-    liHover[i].addEventListener("mouseover",()=>{
-        let index = i;
-        liCont.style.visibility="visible"
-        liCont.innerHTML=`${listarr[i]}`
-        console.log("보낼 인덱스:", index);
-        fetch("/sendIndex", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ index: index }), // index 번호를 JSON 형식으로 전송
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // 서버로부터의 응답 처리
-        console.log("서버 응답:", data);
-        createProductElement(data); // 제품 요소 생성 및 스타일 적용 함수 호출
-      })
-      .catch((error) => {
-        console.error("에러 발생:", error);
-      });
-  });
-
-  liHover[i].addEventListener("mouseleave", () => {
-    liCont.innerHTML = ""; // 기존에 있던 제품 요소들 초기화
-  });
-  function createProductElement(productData) {
-  const productDiv = document.createElement("div");
-  productDiv.classList.add("product");
-
-  // Company 스타일을 적용하는 클래스 추가
-  const companySpan = document.createElement("div");
-  companySpan.textContent = `${productData.company}`;
-  companySpan.classList.add("company-style"); // .company-style 클래스 추가
-  productDiv.appendChild(companySpan);
-
-  // Product 스타일을 적용하는 클래스 추가
-  const productSpan = document.createElement("div");
-  productSpan.textContent = ` ${productData.product}`;
-  productSpan.classList.add("product-style"); // .product-style 클래스 추가
-  productDiv.appendChild(productSpan);
-
-  // Price 스타일을 적용하는 클래스 추가
-  const priceSpan = document.createElement("div");
-  priceSpan.textContent = ` ${productData.price}`;
-  priceSpan.classList.add("price-style"); // .price-style 클래스 추가
-  productDiv.appendChild(priceSpan);
-
-  // Saled Price 스타일을 적용하는 클래스 추가
-  const saledPriceSpan = document.createElement("div");
-  saledPriceSpan.textContent = ` ${productData.saledprice}`;
-  saledPriceSpan.classList.add("saledprice-style"); // .saledprice-style 클래스 추가
-  productDiv.appendChild(saledPriceSpan);
-
-  // 이미지 스타일을 적용하는 클래스 추가
-  const img = document.createElement("img");
-  img.src = productData.image_url;
-  img.classList.add("img-style"); // .img-style 클래스 추가
-  productDiv.appendChild(img);
-
-  // 제품 컨테이너에 추가하기
-  liCont.innerHTML = ""; // 기존에 있던 제품 요소들 초기화
-  liCont.appendChild(productDiv);
-}
-}
-
-</script>
+<script src="event.js"></script>
 </html>

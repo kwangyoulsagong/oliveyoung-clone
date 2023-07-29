@@ -46,9 +46,6 @@
     letter-spacing: 0.001rem;
     color: #000000;
 }
-.delivery{
-    
-}
 .delviery-img{
     padding: 40px 22px 10px 0;
     margin-left: 3.5vw;
@@ -139,21 +136,43 @@
     visibility: hidden;
     color: black;
 }
-.comapany-style{
+.company-style{
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: bold;
+    top: 15%;
+    margin-left: 10%;
+    font-family: 'Noto Sans KR', sans-serif;
 
 }
 .product-style{
+    position: absolute;
+    top: 27.5%;
+    margin-left: 10%;
     
 }
 .price-style{
-    
+    position: absolute;
+    top: 40%;
+    margin-left: 10%;
+    color: #777777;
+
+    text-decoration: line-through;
 }
 .saledprice-style{
+    position: absolute;
+    top: 45%;
+    margin-left: 10%;
+    font-size: 2rem;
     color: red;
+    font-weight: bold;
     
 }
 .img-style{
-    
+    position: absolute;
+    bottom: 0;
+    width: 12vw;
+    height: 22.5vh;
 }
 
 .awards span{
@@ -208,16 +227,20 @@
 .banner{
     position: absolute;
     z-index: 100000000;
-    left: 30%;
+    left: 40%;
     top: 10%;
-    line-height: 5vh;
+    line-height: 6vh;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
 }
 .header1{
     font-size: 3rem;
     font-weight: 100;
+    color: white;
 }
 .header2{
-    color: #666666;
+    color: white;
 }
 .banner2 {
     position: absolute;
@@ -417,6 +440,32 @@
     background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow40x40_2.png) no-repeat;
     text-indent: -9999px;
     border: transparent;
+}
+.simillar-customer{
+    position: relative;
+    margin-left: 15%;
+    margin-top: 50vw;
+    width: 35vw;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 60vh;
+    border-right: 2px rgb(213, 211, 211) solid;
+}
+.more-container{
+    position: absolute;
+    top: 7%;
+    left: 70%;
+    width: 6vw;
+    height: 5vw;
+}
+.more {
+    padding-left: 20px; /* 이미지와 텍스트 사이의 간격 조정 */
+    margin-left: 20%;
+    font-size: 0.95rem;
+    color: #AAAAAA;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ico_more_5x10.png) center right 0/5px ;
+    background-repeat: no-repeat;
 }
 
 .search-box{

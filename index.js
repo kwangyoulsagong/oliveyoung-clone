@@ -73,7 +73,19 @@ app.post("/sendIndex", (req, res) => {
   // 예시로 index를 그대로 클라이언트로 응답합니다.
   
 });
-
+app.post("/simillar",(req,res)=>{
+  const rnd = req.body.rnd;
+  connection.query('SELECT * FROM cosmetics WHERE productid LIKE ?',[rnd],(error, results)=>{
+ 
+    const data=results[0]
+    res.json({
+      prodcutname: data.productname,
+      price: data.price,
+      saleprice: data.saleprice,
+      image_url: data.image_url
+    })
+  })
+})
 
 app.get('/users', (req, res) => {
   connection.query('SELECT * from customer', (error, rows) => {
