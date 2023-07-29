@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 *{
    overflow-x: hidden;
 }
@@ -29,6 +30,47 @@
     border-top: 1px rgb(213, 211, 211) solid;
     overflow: hidden;
     
+}
+.mymenu_area{
+    position: absolute;
+    top: 6%;
+    left: 62.5%;
+    height: 3vh;
+    width: 20vw;
+    padding: absolute;
+    display: flex;
+    gap: 17px;
+    font-size: 0.87rem;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0.001rem;
+    color: #000000;
+}
+.delivery{
+    
+}
+.delviery-img{
+    padding: 40px 22px 10px 0;
+    margin-left: 3.5vw;
+    margin-top: -2.25vh;
+    width: 0.00000000001vw;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_delivery_flag.png) ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-right: 1px rgb(213, 211, 211) solid ;
+    
+}
+.store-img{
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x72.png") no-repeat;
+    padding: 40px 22px 10px 0;
+    margin-left: 5.25vw;
+    margin-top: -1.25vh;
+}
+.recent-img{
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x72.png") no-repeat;
+    padding: 40px 22px 10px 0;
+    margin-left: 5vw;
+    margin-top: -1.25vh;
 }
 .menu-bar li{
     list-style: none;
