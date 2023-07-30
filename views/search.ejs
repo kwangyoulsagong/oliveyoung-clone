@@ -46,7 +46,7 @@
 </div>
 <div class="search-container">
   <div class="search-nav">
-    <span class="search-result">검색결과 (전체 <span class="count-Number">24,843개</span>의 상품)</span>
+    <span class="search-result">검색결과 (전체 <span class="count-Number"><%= count %>개</span>의 상품)</span>
     <div class="check_today">
       <input type="checkbox" id="check_view"><label for="check_view">오늘드림 상품만 보기</label>
     </div>
@@ -85,7 +85,7 @@
   
 
   </div>
-  <span class="search-result2">전체<span class="count-Number">24,843</span>개의 상품이 등록되어 있습니다.</span>
+  <span class="search-result2">전체<span class="count-Number"><%= count %></span>개의 상품이 등록되어 있습니다.</span>
   <div class="product-container">
     <div class="cate_align_box">
       <div class="align_sort"> 
@@ -127,38 +127,21 @@
       <span class="search3"><%= resultArray3[i] %></span>
       <span class="search4"><%= resultArray4[i] %></span>
       <span class="search5"><%= resultArray5[i] %></span>
+      <div class="item-container"> 
+        <span class="search8"><%= resultArray8[i] %></span>
+        <span class="search9"><%= resultArray9[i] %></span>
+        <span class="search10"><%= resultArray10[i] %></span>
+      </div>
+     
     </div>
     <% } %>
   </div>
 </body>
 <script>
-
-
-  axios.get('/searchproduct3').then((res) => {
-    const account3 = document.querySelectorAll('.search3');
-    for (let i = 0; i < res.data.length; i++) {
-      account3[i].innerHTML = res.data[i];
-    }
-  });
-
-  axios.get('/searchproduct4').then((res) => {
-    const account4 = document.querySelectorAll('.search4');
-    for (let i = 0; i < res.data.length; i++) {
-      account4[i].innerHTML = res.data[i];
-    }
-  });
-
-  axios.get('/searchproduct5').then((res) => {
-    const account5 = document.querySelectorAll('.search5');
-    for (let i = 0; i < res.data.length; i++) {
-      account5[i].innerHTML = res.data[i];
-    }
-  });
-  axios.get('/searchproduct7').then((res) => {
-    const account5 = document.querySelectorAll('.search7');
-    for (let i = 0; i < res.data.length; i++) {
-      account6[i].innerHTML = res.data[i];
-    }
-  });
+  const grid=document.querySelector(".grid-container")
+  const count = <%= count %>;
+  if(count < 20){
+    grid.style.height="100vh"
+  }
 </script>
 </html>

@@ -108,43 +108,62 @@ app.post('/search', (req, res) => {
   const search = req.body.search;
   const searchTerm = '%' + search + '%'; 
 
-  const query = 'SELECT * FROM cosmetics WHERE productname LIKE ? OR company LIKE ? OR type LIKE ?';
-  connection.query(query, [searchTerm, searchTerm, searchTerm], (error, results) => {
+  const query = 'SELECT COUNT(*) AS count FROM cosmetics WHERE productname LIKE ? OR company LIKE ? OR type LIKE ?';
+  connection.query(query, [searchTerm, searchTerm, searchTerm], (error, countResults) => {
     if (error) throw error;
 
-    const resultArray3 = [];
-    const resultArray4 = [];
-    const resultArray5 = [];
-    const resultArray6=[];
-    const resultArray7=[];
+    const count = countResults[0].count;
 
+    const dataQuery = 'SELECT * FROM cosmetics WHERE productname LIKE ? OR company LIKE ? OR type LIKE ?';
+    connection.query(dataQuery, [searchTerm, searchTerm, searchTerm], (error, dataResults) => {
+      if (error) throw error;
 
-    for (let i = 0; i < results.length; i++) {
+      const resultArray3 = [];
+      const resultArray4 = [];
+      const resultArray5 = [];
+      const resultArray6 = [];
+      const resultArray7 = [];
+      const resultArray8 = [];
+      const resultArray9 = [];
+      const resultArray10 =[];
+      for (let i = 0; i < dataResults.length; i++) {
+        const arr3 = dataResults[i].productname;
+        resultArray3.push(arr3);
 
-      const arr3 = results[i].productname;
-      resultArray3.push(arr3);
+        const arr4 = dataResults[i].price;
+        resultArray4.push(arr4);
 
-      const arr4 = results[i].price;
-      resultArray4.push(arr4);
+        const arr5 = dataResults[i].saleprice;
+        resultArray5.push(arr5);
 
-      const arr5 = results[i].saleprice;
-      resultArray5.push(arr5);
-      const arr6=results[i].image_url;
-      resultArray6.push(arr6)
-      const arr7=results[i].company;
-      resultArray7.push(arr7)
+        const arr6 = dataResults[i].image_url;
+        resultArray6.push(arr6);
 
-    }
+        const arr7 = dataResults[i].company;
+        resultArray7.push(arr7);
+        const arr8 = dataResults[i].sale;
+        resultArray8.push(arr8);
+        const arr9 = dataResults[i].gift;
+        resultArray9.push(arr9);
+        const arr10 = dataResults[i].today;
+        resultArray10.push(arr10);
+      }
 
-    res.render('search', {
-      resultArray3,
-      resultArray4,
-      resultArray5,
-      resultArray6,
-      resultArray7
+      res.render('search', {
+        count,
+        resultArray3,
+        resultArray4,
+        resultArray5,
+        resultArray6,
+        resultArray7,
+        resultArray8,
+        resultArray9,
+        resultArray10,
+      });
     });
   });
 });
+
 
 
 app.post('/login',(req,res)=>{

@@ -449,7 +449,7 @@
     width: 35vw;
     font-size: 1.5rem;
     font-weight: bold;
-    height: 60vh;
+    height: 50vh;
     border-right: 2px rgb(213, 211, 211) solid;
 }
 .more-container{
@@ -470,14 +470,14 @@
 }
 .simillar-container{
     position: absolute;
-    top: 15%;
+    top: 18%;
     width: 15vw;
     height: 40vh;
 }
 .simillar-container2{
     position: absolute;
     left: 50%;
-    top: 15%;
+    top: 18%;
     width: 15vw;
     height: 40vh;
 }
@@ -497,7 +497,7 @@
 }
 .bag{
     position: absolute;
-    top: 70%;
+    top: 84%;
     left: 40%;
     width: 10vw;
     height: 5vh;
@@ -1087,7 +1087,7 @@
     display: grid;
     margin-left: 16.25%;
     width: 69vw;
-    height: 350vh;
+    height: 400vh;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px; /* Adjust the gap as per your design preference */
     padding-left: 20px; /* Add some padding to the grid container */
@@ -1121,15 +1121,50 @@
     font-size: 14px;
   }
   .search4{
-    display: flex;
-    justify-content: center;
-    font-size: 12px;
+
+    margin-top: 0.25%;
+    margin-left: 20%;
+    font-size: 14px;
     color: #777777;
     text-decoration: line-through;
   }
   .search5 {
+    
+    margin-left: 7.5%;
+    font-size: 20px;
+    color: #e02020;
+    font-weight: bold;
+  }
+  .item-container{
+    width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .search8{
+    font-size: 12px;
+    width: 15%;
+    border-radius: 5px;
+    background: #f65c60;
+    color: #ffffff;
+    text-align: center;
+  }
+  .search9{
+    font-size: 12px;
+    width: 15%;
+    border-radius: 5px;
+    background: #6fcff7;
+    color: #ffffff;
+    text-align: center;
+  }
+  .search10{
+    font-size: 12px;
+    width: 25%;
+    border-radius: 5px;
+    background: #f374b7;
+    color: #ffffff;
+    text-align: center;
   }
 
   
