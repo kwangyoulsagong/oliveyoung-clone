@@ -861,85 +861,125 @@
     top: 70%;
     border-color: #9bce26;
 }
-
-.container {
-    margin-top: 10%;
-    overflow-y: auto;
+.search-container{
+    position: absolute;
+    top: 20%;
+    width: 100vw;
     height: 100vh;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    
-  }
-  
-  .box {
+    border-top: #333333 2px solid;
+}
+.search-nav{
+    position: absolute;
+    width: 100vw;
+    height: 5vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-top: #c6c5c5 1px solid;
-    height: 50vh;
-    
-  }
-  
-  .product-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .search1 {
+    top: 6%;
+}
+.search-result{
+    margin-left: 16%;
+    font-size: 1.3rem;
+    font-family: 'Noto Sans KR', sans-serif;;
+}
+.count-Number{
+    color: red;
+}
+.check_today{
+    position: absolute;
+    top: 15%;
+    left: 60.25vw;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.search-box2{
+    position: absolute;
+    left: 72.5%;
+    top: 15%;
+    border-radius: 20vw;
+    width: 12.5vw;
+    height: 3vh;
+    background: #ffffff;    
+    border: 1px solid #ccc;
+}
+.enter2{
+    position: absolute;
+    top: 7%;
+    left: 80%;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_search19x19.png) center center/14px 14px no-repeat;
+    text-indent: -9999px;
+    width: 1.5vw;
+    height: 3vh;
+    border: #ffffff;
+}
+.select-container{
+    position: relative;
+    margin-top: 16%;
+    margin-left: 16.25%;
+    width: 69vw;
+    height: 15vh;
+    display: flex;
+    border-top: #333333 2px solid;
+}
+.inner{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    border-bottom: #ccc 1px solid;
+}
+.inner2{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 49%;
+    border-bottom: #ccc 1px solid;
+}
+.inner-div{
+    position: absolute;
+    height: 100%;
+    width: 15%;
+    background: #f4f4f4;
+}
+.inner-div2{
+    position: absolute;
+    top: 1%;
+    height: 99%;
+    width: 15%;
+    background: #f4f4f4;
+}
+.inner-div span{
+    display: flex;
+    margin-left: 10%;
+    height: 100%;
     font-weight: bold;
-    font-size: 18px;
-    margin-top: 2vh;
-    margin-bottom: 8px;
-    color: #777777;
-    border-bottom: black 1px solid;
-  }
-  
-  .search2 {
-    font-size: 16px;
-  }
-  
-  .search3 {
-    font-size: 16px;
-    margin-top: 8px;
-  }
-  
-  .search4 {
-    font-size: 14px;
-    margin-top: 8px;
-    color: #777777;
-
-    text-decoration: line-through;
-  }
-  
-  .search5 {
-    font-size: 14px;
-    margin-top: 8px;
-    font-size: 1.5rem;
-    color: #e02020;
-  }
-  
-  .purchase-button {
-    margin-top: 16px;
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    
-  }
-  
-  .purchase-button:hover {
-    background-color: #45a049;
-  }
-  
-  .purchase-button:active {
-    background-color: #3e8e41;
-  }
+    align-items: center;
+}
+.list-scrbar{
+    position: absolute;
+    top: 10%;
+    left: 11%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    gap: 100px;
+    font-size: 0.85rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    color: rgb(149, 148, 148);
+}
+.inner-div2 span{
+    display: flex;
+    margin-left: 10%;
+    height: 100%;
+    font-weight: bold;
+    align-items: center;
+}
+.priceSearch{
+    position: absolute;
+    left: 16%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    color: rgb(149, 148, 148);
+}

@@ -27,26 +27,60 @@
       <input type="submit" class="enter" value="" />
     </div>
   </form>
-  <div class="container">
-    <div class="grid-container">
-      <% for (let i = 0; i < resultArray1.length; i++) { %>
-      <div class="box">
-        <div class="pw"></div>
-        <span class="search1"><%= resultArray1[i] %></span>
-        <span class="search2"><%= resultArray2[i] %></span>
-        <div class="image-box">
-          <img class="product-image" src="<%= resultArray6[i] %>" alt="Product Image">
-        </div>
-        <span class="search3"><%= resultArray3[i] %></span>
-        <span class="search4"><%= resultArray4[i] %></span>
-        <span class="search5"><%= resultArray5[i] %></span>
-        <div class="button-container">
-          <button class="purchase-button"><%= resultArray3[i] %></button><span>구매</span>
-        </div>
-      </div>
-      <% } %>
+  <ul class="mymenu_area">  
+    <li class="delivey">오늘드림 <div class="delviery-img"></div></li>
+    <li class="store">관심매장소식 <div class="store-img"></div></li>
+    <li class="recent">최근 본 상품 <div class="recent-img"></div></li>
+</ul>
+<div class="menu-bar">
+<div class="menu-button"><a></a><span>카테고리</span></div>
+<li>오특</li>
+<li>신상</li>
+<li>랭킹</li>
+<li>프리미엄관</li>
+<li>기획전</li>
+<li>세일</li>
+<li>기프트카드</li>
+<li>멤버쉽/쿠폰</li>
+<li>이벤트</li>   
+</div>
+<div class="search-container">
+  <div class="search-nav">
+    <span class="search-result">검색결과 (전체 <span class="count-Number">24,843개</span>의 상품)</span>
+    <div class="check_today">
+      <input type="checkbox" id="check_view"><label for="check_view">오늘드림 상품만 보기</label>
+    </div>
+    <form method="post" action="search"><div class="search-box2"><input type="text" class="search" name="search" placeholder="결과 내 검색">
+      <input type="submit" class="enter2" value="" /></div></form></div>
+  </div>
+</div>
+<div class="select-container">
+  <div class="inner">
+    <ul class="list-scrbar">                           
+      <li><input type="checkbox" id="inpChk18"  name="" value="BenefitAll" data-attr="통합검색결과페이지^필터_혜택^전체" > <label for="inpChk18">전체</label><span></span></li>                           
+      <li><input type="checkbox" id="inpChk19" name="benefit_check" data-attr="통합검색결과페이지^필터_혜택^쿠폰상품" value="CPN_YN"  ><label for="inpChk19">쿠폰상품</label></li>                           
+      <li><input type="checkbox" id="inpChk20" name="benefit_check" data-attr="통합검색결과페이지^필터_혜택^세일상품" value="DSCNT_YN" ><label for="inpChk20">세일상품</label></li>                                
+      <li><input type="checkbox" id="inpChk21" name="benefit_check" data-attr="통합검색결과페이지^필터_혜택^1+1" value="ASSOC_PROMT_STD_CNT_1"  ><label for="inpChk21">1+1</label> </li>
+      <li><input type="checkbox" id="inpChk22" name="benefit_check" data-attr="통합검색결과페이지^필터_혜택^2+1" value="ASSOC_PROMT_STD_CNT_2"  ><label for="inpChk22">2+1</label></li>
+      <li><input type="checkbox" id="inpChk23" name="benefit_check" data-attr="통합검색결과페이지^필터_혜택^증정상품" value="PRST_YN"  ><label for="inpChk23">증정상품</label></li>
+      <li><input type="checkbox" id="inpChk24" name="benefit_check" data-attr="통합검색결과페이지^필터_혜택^무료배송" value="FREE_DLV_YN"  ><label for="inpChk24">무료배송</label></li>
+  </ul>
+    <div class="inner-div">
+      <span>혜택</span>
+      
     </div>
   </div>
+  <div class="inner2">
+    <div class="priceSearch">                            
+      <input type="text" id="sale_below_price" name="sale_below_price" placeholder="최저가" value="" title=""><span>~</span>
+      <input type="text" id="sale_over_price" name="sale_over_price" placeholder="최고가" value="" title="">                           
+      <input type="submit" value="가격대 적용" title="가격대 적용">
+   </div>
+    <div class="inner-div2">
+      <span>가격대</span>
+    </div>
+  </div>
+</div>
   
   
 
