@@ -112,20 +112,14 @@ app.post('/search', (req, res) => {
   connection.query(query, [searchTerm, searchTerm, searchTerm], (error, results) => {
     if (error) throw error;
 
-    const resultArray1 = [];
-    const resultArray2 = [];
     const resultArray3 = [];
     const resultArray4 = [];
     const resultArray5 = [];
     const resultArray6=[];
+    const resultArray7=[];
 
 
     for (let i = 0; i < results.length; i++) {
-      const arr1 = results[i].company;
-      resultArray1.push(arr1);
-
-      const arr2 = results[i].type;
-      resultArray2.push(arr2);
 
       const arr3 = results[i].productname;
       resultArray3.push(arr3);
@@ -137,16 +131,17 @@ app.post('/search', (req, res) => {
       resultArray5.push(arr5);
       const arr6=results[i].image_url;
       resultArray6.push(arr6)
+      const arr7=results[i].company;
+      resultArray7.push(arr7)
 
     }
 
     res.render('search', {
-      resultArray1,
-      resultArray2,
       resultArray3,
       resultArray4,
       resultArray5,
-      resultArray6
+      resultArray6,
+      resultArray7
     });
   });
 });
@@ -256,20 +251,14 @@ app.post('/login',(req,res)=>{
       connection.query(query, [searchTerm,searchTerm,searchTerm], (error, results) => {
         if (error) throw error;
     
-        const resultArray1 = [];
-        const resultArray2 = [];
         const resultArray3 = [];
         const resultArray4 = [];
         const resultArray5 = [];
         const resultArray6=[];
+        const resultArray7=[];
     
     
         for (let i = 0; i < results.length; i++) {
-          const arr1 = results[i].company;
-          resultArray1.push(arr1);
-    
-          const arr2 = results[i].type;
-          resultArray2.push(arr2);
     
           const arr3 = results[i].productname;
           resultArray3.push(arr3);
@@ -281,16 +270,17 @@ app.post('/login',(req,res)=>{
           resultArray5.push(arr5);
           const arr6=results[i].image_url;
           resultArray6.push(arr6)
+          const arr7=results[i].company;
+          resultArray7.push(arr7)
     
         }
     
-        res.render('searchlogin', {
-          resultArray1,
-          resultArray2,
+        res.render('search', {
           resultArray3,
           resultArray4,
           resultArray5,
-          resultArray6
+          resultArray6,
+          resultArray7
         });
       });
     });

@@ -80,27 +80,59 @@
       <span>가격대</span>
     </div>
   </div>
-</div>
   
+</div>
   
 
   </div>
+  <span class="search-result2">전체<span class="count-Number">24,843</span>개의 상품이 등록되어 있습니다.</span>
+  <div class="product-container">
+    <div class="cate_align_box">
+      <div class="align_sort"> 
+        <ul>
+          <li class="on"><a href="#" value="WEIGHT/DESC,RNK/DESC">인기순</a></li>
+          <li><a href="#" value="DATE/DESC" >최근등록순</a></li>
+          <li><a href="#" value="SALE_QTY/DESC" >판매수량순</a></li>
+          
+
+          <li><a href="#" value="SALE_PRC/ASC" >낮은 가격순</a></li>
+          <li><a href="#" value="SALE_PRC/DESC" >높은 가격순</a></li>
+          <li><a href="#" value="SALE_PER/DESC" >할인율순</a></li>
+        </ul>
+      </div>
+      <div class="count_sort tx_num">
+        <span class="tx_view">VIEW</span>
+        <ul>
+          <li class="on">24</li>
+          <li><a href="#" title="36개씩 보기" >36</a></li>
+          <li><a href="#" title="48개씩 보기" >48</a></li>
+        </ul>
+      </div>
+      <div class="type_sort">
+        <button class="btn_thumb active">컬럼형식으로 보기</button>
+        <button class="btn_list">리스트형식으로 보기</button>
+      </div> 
+    </div>
+   
+
+  </div>
+  <div class="grid-container">
+    <% for (let i = 0; i < resultArray3.length; i++) { %>
+    <div class="box">
+      <div class="pw"></div>
+      <div class="image-box">
+        <img class="product-image" src="<%= resultArray6[i] %>" alt="Product Image">
+      </div>
+      <span class="search7"><%= resultArray7[i] %></span>
+      <span class="search3"><%= resultArray3[i] %></span>
+      <span class="search4"><%= resultArray4[i] %></span>
+      <span class="search5"><%= resultArray5[i] %></span>
+    </div>
+    <% } %>
+  </div>
 </body>
 <script>
- 
-  axios.get('/searchproduct1').then((res) => {
-    const account1 = document.querySelectorAll('.search1');
-    for (let i = 0; i < res.data.length; i++) {
-      account1[i].innerHTML = res.data[i];
-    }
-  });
 
-  axios.get('/searchproduct2').then((res) => {
-    const account2 = document.querySelectorAll('.search2');
-    for (let i = 0; i < res.data.length; i++) {
-      account2[i].innerHTML = res.data[i];
-    }
-  });
 
   axios.get('/searchproduct3').then((res) => {
     const account3 = document.querySelectorAll('.search3');
@@ -122,11 +154,11 @@
       account5[i].innerHTML = res.data[i];
     }
   });
-  const btn=document.querySelectorAll('.purchase-button')
-  for(let i=0; i<btn.length; i++){
-    btn[i].addEventListener('click',()=>{
-    alert('로그인해주세요')
-  })
-  }
+  axios.get('/searchproduct7').then((res) => {
+    const account5 = document.querySelectorAll('.search7');
+    for (let i = 0; i < res.data.length; i++) {
+      account6[i].innerHTML = res.data[i];
+    }
+  });
 </script>
 </html>
