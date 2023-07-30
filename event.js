@@ -143,55 +143,74 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 const simillarCont=document.querySelector(".simillar-container");
+const simillarCont2=document.querySelector(".simillar-container2")
 const rnd=getRandomNumber(1, 30);
 console.log("보낼 랜덤숫자:", rnd);
+// Make a POST request to "/similar" endpoint
 fetch("/simillar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ rnd: rnd }), // index 번호를 JSON 형식으로 전송
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // 서버로부터의 응답 처리
-        console.log("서버 응답:", data);
-        createSimillarProductElement(data); // 제품 요소 생성 및 스타일 적용 함수 호출
-      })
-      .catch((error) => {
-        console.error("에러 발생:", error);
-      });
-      function createSimillarProductElement(productData) {
-  const SimillarDiv = document.createElement("div");
-  SimillarDiv.classList.add("SimillarProduct");
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ rnd: rnd }), // Assuming rnd is defined somewhere before this code
+})
+  .then((response) => response.json())
+  .then((data) => {
+    // Server response handling
+    console.log("서버 응답:", data);
+    displaySimilarProducts(data); // Function to display similar products
+  })
+  .catch((error) => {
+    console.error("에러 발생:", error);
+  });
 
+function displaySimilarProducts(productData) {
+  // Create a container for each product
+  const createProductElement = (product) => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("similar-product");
 
+    // Add product name
+    const productNameSpan = document.createElement("div");
+    productNameSpan.textContent = ` ${product.productname}`;
+    productNameSpan.classList.add("productname-style");
+    productDiv.appendChild(productNameSpan);
 
-  // Product 스타일을 적용하는 클래스 추가
-  const productnameSpan = document.createElement("div");
-  productnameSpan.textContent = ` ${productData.prodcutname}`;
-  productnameSpan.classList.add("productname-style"); // .product-style 클래스 추가
-  SimillarDiv.appendChild(productnameSpan);
+    // Add price
+    const priceSpan = document.createElement("div");
+    priceSpan.textContent = ` ${product.price}`;
+    priceSpan.classList.add("simillarprice-style");
+    productDiv.appendChild(priceSpan);
 
-  // Price 스타일을 적용하는 클래스 추가
-  const priceSpan = document.createElement("div");
-  priceSpan.textContent = ` ${productData.price}`;
-  priceSpan.classList.add("simillarprice-style"); // .price-style 클래스 추가
-  SimillarDiv.appendChild(priceSpan);
+    // Add sale price
+    const saledPriceSpan = document.createElement("div");
+    saledPriceSpan.textContent = ` ${product.saleprice}`;
+    saledPriceSpan.classList.add("saleprice-style");
+    productDiv.appendChild(saledPriceSpan);
 
-  // Saled Price 스타일을 적용하는 클래스 추가
-  const saledPriceSpan = document.createElement("div");
-  saledPriceSpan.textContent = ` ${productData.saleprice}`;
-  saledPriceSpan.classList.add("saleprice-style"); // .saledprice-style 클래스 추가
-  SimillarDiv.appendChild(saledPriceSpan);
+    // Add image
+    const img = document.createElement("img");
+    img.src = product.image_url;
+    img.classList.add("simillarimg-style");
+    productDiv.appendChild(img);
 
-  // 이미지 스타일을 적용하는 클래스 추가
-  const img = document.createElement("img");
-  img.src = productData.image_url;
-  img.classList.add("simillarimg-style"); // .img-style 클래스 추가
-  SimillarDiv.appendChild(img);
+    return productDiv;
+  };
 
-  // 제품 컨테이너에 추가하기
-  simillarCont.innerHTML = ""; // 기존에 있던 제품 요소들 초기화
-  simillarCont.appendChild(SimillarDiv);
+  // Clear the previous product elements
+  simillarCont.innerHTML = "";
+  simillarCont2.innerHTML = "";
+
+  // Check if the first product data is available and create its container
+  if (productData.rnd) {
+    const productDiv1 = createProductElement(productData.rnd);
+    simillarCont.appendChild(productDiv1);
+  }
+
+  // Check if the second product data is available and create its container
+  if (productData.rnd2) {
+    const productDiv2 = createProductElement(productData.rnd2);
+    simillarCont2.appendChild(productDiv2);
+  }
+
 }

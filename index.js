@@ -75,17 +75,26 @@ app.post("/sendIndex", (req, res) => {
 });
 app.post("/simillar",(req,res)=>{
   const rnd = req.body.rnd;
-  connection.query('SELECT * FROM cosmetics WHERE productid LIKE ?',[rnd],(error, results)=>{
+  const rnd2=rnd+1
+  connection.query('SELECT * FROM cosmetics WHERE productid in(?, ?)',[rnd, rnd2],(error, results)=>{
  
-    const data=results[0]
-    res.json({
-      prodcutname: data.productname,
-      price: data.price,
-      saleprice: data.saleprice,
-      image_url: data.image_url
-    })
+    const dataRnd=results.find((item)=> item.productid===rnd)
+    const dataRnd2=results.find((item)=> item.productid===rnd2)
+    const responeData={
+      rnd: dataRnd? formatProductData(dataRnd) : null,
+      rnd2: dataRnd2? formatProductData(dataRnd2) : null
+    }
+    res.json(responeData)
   })
 })
+function formatProductData(data){
+  return{
+    productname: data.productname || 'Unknown Product',
+    price: data.price || 0,
+    saleprice: data.saleprice || 0,
+    image_url: data.image_url || ''
+  }
+}
 
 app.get('/users', (req, res) => {
   connection.query('SELECT * from customer', (error, rows) => {

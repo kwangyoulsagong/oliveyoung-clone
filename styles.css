@@ -474,6 +474,13 @@
     width: 15vw;
     height: 40vh;
 }
+.simillar-container2{
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    width: 15vw;
+    height: 40vh;
+}
 .productname-style{
     position: absolute;
     top: 70%;
