@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Noto+Sans+Vithkuqi:wght@700&display=swap');
 *{
-   /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 .navbar {
     display: flex;
@@ -590,6 +590,8 @@
     left: 14.6%;
     width: 71vw;
     height: 50vw;
+    overflow: hidden;
+    scroll-behavior: smooth;
 
 }
 .popular-container-slide{
@@ -782,6 +784,24 @@
     background: #6fcff7;
     color: #ffffff;
     text-align: center;
+}
+.slick-next-arrow{
+    position: absolute;
+    top: 125vw;
+    right:5%;
+   background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow40x40_2.png") no-repeat;
+   background-position: -40px 0;
+   width: 40px;
+    height: 40px;
+}
+.slick-prev-arrow{
+    position: absolute;
+    top: 125vw;
+    left:5%;
+   background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow40x40_2.png") no-repeat;
+   background-position: 0px 0;
+   width: 40px;
+    height: 40px;
 }
 .today-style{
     position: absolute;

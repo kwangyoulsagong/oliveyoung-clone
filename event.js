@@ -280,5 +280,26 @@ axios.get(`http://localhost:3000/popular1`).then((res) => {
     }
   }
 });
+const slickNext=document.querySelector(".slick-next-arrow");
+const slickPrev=document.querySelector(".slick-prev-arrow")
+const popularSlider=document.querySelector(".popular-container")
+var cnt=0
+slickNext.addEventListener("click",()=>{
+   popularSlider.scrollLeft+=window.innerWidth/1.38
+   cnt++;
+   if(cnt==4){
+    popularSlider.scrollLeft=0
+    cnt=0
+   }
+})
+slickPrev.addEventListener("click",()=>{
+  popularSlider.scrollLeft-=window.innerWidth/1.38
+  cnt--;
+  if(cnt<0){
+   popularSlider.scrollLeft=(window.innerWidth/1.38)*3
+   cnt=3
+  }
+})
+
 
 
