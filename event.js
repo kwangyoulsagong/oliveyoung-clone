@@ -1,3 +1,4 @@
+
 const imglink=[
     'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/2707527842238214492.jpg',
     'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/5997961015899981333.jpg',
@@ -229,3 +230,55 @@ function displaySimilarProducts(productData) {
   }
 
 }
+// Function to generate HTML for a single item
+// Function to generate HTML for a single item
+function generateItemHTML(item) {
+  return `
+  <div class="popular-item">
+  <img class="popular-img" src="${item.image_url}" alt="">
+  <div class="popular-company">${item.company}</div>
+  <div class="popular-product-name">${item.product}</div>
+  <div class="popular-price-container">
+    <div class="popular-price">${item.price}</div>
+    <div class="popular-saledprice">${item.saledprice}</div>
+  </div>
+  <div class="popular-event"> 
+    <div class="popular-sale">${item.sale}</div>
+    <div class="popular-gift">${item.gift}</div>
+    <div class="popular-today">${item.today}</div>
+  </div>
+</div>`;
+}
+
+axios.get(`http://localhost:3000/popular1`).then((res) => {
+  const container1 = document.querySelectorAll('.popular-product-container1');
+  const container2 = document.querySelectorAll('.popular-product-container2');
+
+  for (let i = 0; i < res.data.length; i += 4) {
+    const item1 = res.data[i];
+    const item2 = i + 1 < res.data.length ? res.data[i + 1] : null;
+    const item3 = i + 2 < res.data.length ? res.data[i + 2] : null;
+    const item4 = i + 3 < res.data.length ? res.data[i + 3] : null;
+
+    const container1Index = Math.floor(i / 4);
+    const container2Index = Math.floor(i / 4);
+
+    if (item1) {
+      container1[container1Index].innerHTML += generateItemHTML(item1);
+    }
+
+    if (item2) {
+      container1[container1Index].innerHTML += generateItemHTML(item2);
+    }
+
+    if (item3) {
+      container2[container2Index].innerHTML += generateItemHTML(item3);
+    }
+
+    if (item4) {
+      container2[container2Index].innerHTML += generateItemHTML(item4);
+    }
+  }
+});
+
+

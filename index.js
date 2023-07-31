@@ -101,6 +101,27 @@ function formatProductData(data){
     today: data.today || ''
   }
 }
+app.get('/popular1', (req, res) => {
+  connection.query('SELECT * from populartable', (error, rows) => {
+    const oddRows = rows
+    if (oddRows.length > 0) {
+      const data = oddRows.map(row => ({
+        image_url: row.image_url,
+        company: row.company,
+        product: row.product,
+        price: row.price || '',
+        saledprice: row.saledprice,
+        sale: row.sale || '',
+        gift: row.gift || '',
+        today: row.today || ''
+      }));
+      res.json(data);
+    } else {
+      res.json([]);
+    }
+  });
+});
+
 
 app.get('/users', (req, res) => {
   connection.query('SELECT * from customer', (error, rows) => {

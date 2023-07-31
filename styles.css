@@ -590,14 +590,14 @@
     left: 14.6%;
     width: 71vw;
     height: 50vw;
-    background: wheat;
+
 }
 .popular-container-slide{
     position: relative;
     width: 290vw;
     display: flex;
     height: 50vw;
-    background: wheat;
+
     
 }
 .popular-slider{
@@ -620,7 +620,9 @@
 .popular-product-container1{
     position: absolute;
     top: 33vh;
+
     left: 1.25%;
+    gap: 2px;
     width: 33.25vw;
     height: 45vh;
     background: white;
@@ -629,15 +631,124 @@
     position: absolute;
     top: 33vh;
     left: 51.25%;
+  
     width: 33.25vw;
     height: 45vh;
     background: white;
 }
 .p1{
     position: absolute;
+    top: 10%;
+    left: 3%;
+    font-size: 21px;
     display: flex;
     flex-direction: column;
 }
+.desc{
+    margin-top: 5%;
+    font-size: 16px;
+}
+.p2{
+    position: absolute;
+    top: 10%;
+    left: 53%;
+    font-size: 21px;
+    display: flex;
+    flex-direction: column;
+}
+.desc{
+    margin-top: 5%;
+    font-size: 16px;
+}
+.popular-product-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  /* Styles for container 2 */
+  .popular-product-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  /* Styles for each popular item */
+  .popular-item {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .popular-img {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .popular-company {
+    font-weight: bold;
+    color: #777777;
+    font-size: 14px;
+  }
+
+  .popular-product-name {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .popular-price-container {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 5px;
+    gap: 20px;
+  }
+  .popular-price {
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #777777;
+  }
+
+  .popular-saledprice {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .popular-event {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    gap: 2px;
+  }
+  .popular-sale {
+    color: #e74c3c;
+    font-size: 12px;
+    width: 2.5vw;
+    border-radius: 5px;
+    background: #f65c60;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .popular-gift {
+    font-size: 12px;
+    width: 2.5vw;
+    border-radius: 5px;
+    background: #6fcff7;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .popular-today {
+    font-size: 12px;
+    width: 3.5vw;
+    border-radius: 5px;
+    background: #f374b7;
+    color: #ffffff;
+    text-align: center;
+  }
 .saleprice-style{
     position: absolute;
     left: 40%;
