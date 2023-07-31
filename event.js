@@ -194,6 +194,21 @@ function displaySimilarProducts(productData) {
     img.classList.add("simillarimg-style");
     productDiv.appendChild(img);
 
+    const saleSpan = document.createElement("div");
+    saleSpan.textContent = ` ${product.sale}`;
+    saleSpan.classList.add("sale-style");
+    productDiv.appendChild(saleSpan);
+
+    const giftSpan = document.createElement("div");
+    giftSpan.textContent = ` ${product.gift}`;
+    giftSpan.classList.add("gift-style");
+    productDiv.appendChild(giftSpan);
+
+    const todaySpan = document.createElement("div");
+    todaySpan.textContent = ` ${product.today}`;
+    todaySpan.classList.add("today-style");
+    productDiv.appendChild(todaySpan);
+
     return productDiv;
   };
 

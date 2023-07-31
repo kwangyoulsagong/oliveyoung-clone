@@ -76,6 +76,9 @@ app.post("/sendIndex", (req, res) => {
 app.post("/simillar",(req,res)=>{
   const rnd = req.body.rnd;
   const rnd2=rnd+1
+  if(rnd==30){
+    rnd2-=2
+  }
   connection.query('SELECT * FROM cosmetics WHERE productid in(?, ?)',[rnd, rnd2],(error, results)=>{
  
     const dataRnd=results.find((item)=> item.productid===rnd)
@@ -89,10 +92,13 @@ app.post("/simillar",(req,res)=>{
 })
 function formatProductData(data){
   return{
-    productname: data.productname || 'Unknown Product',
-    price: data.price || 0,
-    saleprice: data.saleprice || 0,
-    image_url: data.image_url || ''
+    productname: data.productname || '',
+    price: data.price || '',
+    saleprice: data.saleprice || '',
+    image_url: data.image_url || '',
+    sale: data.sale || '',
+    gift: data.gift || '',
+    today: data.today || ''
   }
 }
 

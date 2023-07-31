@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Noto+Sans+Vithkuqi:wght@700&display=swap');
 *{
    overflow-x: hidden;
 }
@@ -489,7 +489,7 @@
 }
 .simillarprice-style{
     position: absolute;
-    top: 83.5%;
+    top: 86%;
     font-size: 1rem;
     color: #777777;
 
@@ -497,16 +497,94 @@
 }
 .bag{
     position: absolute;
-    top: 84%;
+    top: 87%;
     left: 40%;
     width: 10vw;
     height: 5vh;
     background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon_bag.png") no-repeat;
 }
+.bag2{
+    position: absolute;
+    top: 87%;
+    left: 90%;
+    width: 10vw;
+    height: 5vh;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon_bag.png") no-repeat;
+}
+.weekly-special{
+    position: absolute;
+    margin-top: 5%;
+    left: 15%;
+    width: 71vw;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+}
+.weekly-special span{
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Noto Sans Vithkuqi', sans-serif;
+}
+.weekly-banner1{
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 35vw;
+    height: 30vh;
+    object-fit: contain;
+}
+.weekly-banner2{
+    position: absolute;
+    top: 15%;
+    left: 51%;
+    width: 35vw;
+    height: 30vh;
+    object-fit: contain;
+}
+.text_wrap{
+    position: absolute;
+    margin-top: 10%;
+    left: 5%;
+    z-index: 9999;
+    font-size: 21px;
+}
+.text_wrap dt{
+    font-weight: bold;
+}
+.text_wrap dd{
+    margin-top: 20%;
+   margin-left: 0%;
+   font-size: 16px;
+}
+.text_wrap2{
+    position: absolute;
+    margin-top: 10%;
+    left: 55%;
+    z-index: 9999;
+    font-size: 21px;
+}
+.text_wrap2 dt{
+    font-weight: bold;
+}
+.text_wrap2 dd{
+    margin-top: 20%;
+   margin-left: 0%;
+   font-size: 16px;
+}
+.popular-container{
+    position: relative;
+    margin-top: 25vw;
+    left: 14.6%;
+    width: 71vw;
+    height: 20vw;
+    display: flex;
+    background: black;
+    justify-content: center;
+}
 .saleprice-style{
     position: absolute;
     left: 40%;
-    top: 82%;
+    top: 85%;
     color: red;
 }
 .simillarimg-style{
@@ -515,6 +593,38 @@
     width: 100%;
     height: 27.5vh;
     object-fit: cover;
+}
+.sale-style{
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    width: 15%;
+    border-radius: 5px;
+    background: #f65c60;
+    color: #ffffff;
+    text-align: center;
+}
+.gift-style{
+    position: absolute;
+    left: 37.5% ;
+    bottom: 0;
+    font-size: 12px;
+    width: 15%;
+    border-radius: 5px;
+    background: #6fcff7;
+    color: #ffffff;
+    text-align: center;
+}
+.today-style{
+    position: absolute;
+    left: 70%;
+    bottom: 0;
+    font-size: 12px;
+    width: 25%;
+    border-radius: 5px;
+    background: #f374b7;
+    color: #ffffff;
+    text-align: center;
 }
 
 .search-box{
